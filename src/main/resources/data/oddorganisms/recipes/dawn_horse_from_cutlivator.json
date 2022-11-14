@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "oddorganisms:dawn_horse_flask"
+    }
+  ],
+  "output": {
+    "item": "oddorganisms:dawn_horse_spawn_egg"
+  }
+}

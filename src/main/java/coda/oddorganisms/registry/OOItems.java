@@ -1,7 +1,7 @@
 package coda.oddorganisms.registry;
 
 import coda.oddorganisms.OddOrganisms;
-import com.peeko32213.unusualprehistory.UnusualPrehistory;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -21,4 +21,8 @@ public class OOItems {
 
     public static final RegistryObject<Item> DAWN_HORSE_SPAWN_EGG = ITEMS.register("dawn_horse_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DAWN_HORSE, 0xb89268, 0xffe5b1, new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> DAWN_HORSE_FLASK = ITEMS.register("dawn_horse_flask", () -> new Item(new Item.Properties().tab(GROUP)));
+    public static final RegistryObject<Item> DAWN_HORSE_EMBRYO = ITEMS.register("dawn_horse_embryo", () -> new Item(new Item.Properties().tab(GROUP)));
+    public static final RegistryObject<Item> CENOZOIC_FOSSIL = ITEMS.register("cenozoic_fossil", () -> new Item(new Item.Properties().tab(GROUP)));
+
+    public static final RegistryObject<Item> TERRACOTTA_FOSSIL = ITEMS.register("terracotta_fossil", () -> new BlockItem(OOBlocks.TERRACOTTA_FOSSIL.get(), new Item.Properties().tab(GROUP)));
 }

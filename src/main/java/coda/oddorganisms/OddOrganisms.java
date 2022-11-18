@@ -84,7 +84,7 @@ public class OddOrganisms {
                 stack.shrink(1);
 
                 horse.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
-                    embryoProvider.setTimer(90); // 5 minute timer
+                    embryoProvider.setTimer(300 * 20); // 5 minute timer
                 });
             }
         }
@@ -124,7 +124,7 @@ public class OddOrganisms {
                         dawnHorse.moveTo(horse.position());
                         dawnHorse.setAge(-24000);
 
-                        embryoData.setTimer(90);
+                        embryoData.setTimer(300 * 20);
 
                         level.addFreshEntity(dawnHorse);
 

@@ -63,7 +63,6 @@ public class OddOrganisms {
         if (category == Biome.BiomeCategory.NETHER || category == Biome.BiomeCategory.THEEND || category == Biome.BiomeCategory.NONE) return;
 
         builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OOPlacedFeatures.TERRACOTTA_FOSSIL);
-
     }
 
     private void registerAttributes(EntityAttributeCreationEvent e) {
@@ -78,13 +77,13 @@ public class OddOrganisms {
         if (e.getTarget() instanceof Horse horse) {
             CompoundTag tag = horse.getPersistentData();
 
-            if (!horse.isBaby() && stack.is(OOItems.DAWN_HORSE_EMBRYO.get()) && (!tag.getBoolean("HasEmbryo") || tag.get("HasEmbryo") == null)) {
+            if (!horse.isBaby() && stack.is(OOItems.DAWN_HORSE_EMBRYO.get())) {
 
                 tag.putBoolean("HasEmbryo", true);
 
                 stack.shrink(1);
 
-                horse.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> { // todo - fix horses not being able to use embryos more than once
+                horse.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
                     embryoProvider.setTimer(90); // 5 minute timer
                 });
             }
@@ -95,6 +94,9 @@ public class OddOrganisms {
         if (e.getEntity() instanceof Wolf wolf) {
             wolf.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(wolf, DawnHorse.class, true));
         }
+        if (e.getEntity() instanceof Horse horse && horse.getPersistentData().get("HasEmbryo") == null) {
+            horse.getPersistentData().putBoolean("HasEmbryo", false);
+        }
     }
 
     private void entityTick(LivingEvent.LivingUpdateEvent e) {
@@ -103,9 +105,9 @@ public class OddOrganisms {
 
             CompoundTag tag = horse.getPersistentData();
 
-            if (cap.isPresent() && tag.get("HasEmbryo") != null && tag.getBoolean("HasEmbryo")) {
-                cap.ifPresent(embryoData -> {
+            if (cap.isPresent() && tag.getBoolean("HasEmbryo")) {
 
+                cap.ifPresent(embryoData -> {
                     int i = embryoData.getTimer();
 
                     if (i > 0) {
@@ -115,14 +117,14 @@ public class OddOrganisms {
                     else if (i == 0) {
                         Level level = horse.level;
 
-                        cap.invalidate();
+                        tag.putBoolean("HasEmbryo", false);
 
                         DawnHorse dawnHorse = OOEntities.DAWN_HORSE.get().create(level);
 
-                        tag.remove("HasEmbryo");
-
                         dawnHorse.moveTo(horse.position());
                         dawnHorse.setAge(-24000);
+
+                        embryoData.setTimer(90);
 
                         level.addFreshEntity(dawnHorse);
 
@@ -140,7 +142,6 @@ public class OddOrganisms {
         if (e.getObject() instanceof Horse horse && !horse.isBaby()) {
             if (!e.getObject().getCapability(EmbryoProvider.EMBRYO).isPresent()) {
                 e.addCapability(new ResourceLocation(OddOrganisms.MOD_ID, "embryo"), new EmbryoProvider());
-                System.out.println("Capabilities attached!");
             }
         }
     }

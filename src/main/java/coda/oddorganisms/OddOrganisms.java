@@ -77,7 +77,7 @@ public class OddOrganisms {
         if (e.getTarget() instanceof Horse horse) {
             CompoundTag tag = horse.getPersistentData();
 
-            if (!horse.isBaby() && stack.is(OOItems.DAWN_HORSE_EMBRYO.get())) {
+            if (!horse.isBaby() && stack.is(OOItems.DAWN_HORSE_EMBRYO.get()) & !horse.getPersistentData().getBoolean("HasEmbryo")) {
 
                 tag.putBoolean("HasEmbryo", true);
 

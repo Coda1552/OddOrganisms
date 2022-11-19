@@ -14,6 +14,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Wolf;
+import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -94,13 +95,13 @@ public class OddOrganisms {
         if (e.getEntity() instanceof Wolf wolf) {
             wolf.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(wolf, DawnHorse.class, true));
         }
-        if (e.getEntity() instanceof Horse horse && horse.getPersistentData().get("HasEmbryo") == null) {
+        if (e.getEntity() instanceof AbstractHorse horse && horse.getPersistentData().get("HasEmbryo") == null) {
             horse.getPersistentData().putBoolean("HasEmbryo", false);
         }
     }
 
     private void entityTick(LivingEvent.LivingUpdateEvent e) {
-        if (e.getEntityLiving() instanceof Horse horse) {
+        if (e.getEntityLiving() instanceof AbstractHorse horse) {
             var cap = horse.getCapability(EmbryoProvider.EMBRYO);
 
             CompoundTag tag = horse.getPersistentData();
@@ -139,7 +140,7 @@ public class OddOrganisms {
 
 
     private void attachCapabilitiesAnimal(AttachCapabilitiesEvent<Entity> e) {
-        if (e.getObject() instanceof Horse horse && !horse.isBaby()) {
+        if (e.getObject() instanceof AbstractHorse horse && !horse.isBaby()) {
             if (!e.getObject().getCapability(EmbryoProvider.EMBRYO).isPresent()) {
                 e.addCapability(new ResourceLocation(OddOrganisms.MOD_ID, "embryo"), new EmbryoProvider());
             }

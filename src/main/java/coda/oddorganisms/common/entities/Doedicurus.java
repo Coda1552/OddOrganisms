@@ -10,13 +10,13 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
-import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.HitResult;
@@ -29,10 +29,10 @@ import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 
-public class DawnHorse extends Animal implements IAnimatable {
+public class Doedicurus extends Animal implements IAnimatable {
     private final AnimationFactory factory = new AnimationFactory(this);
 
-    public DawnHorse(EntityType<? extends Animal> p_27557_, Level p_27558_) {
+    public Doedicurus(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);
     }
 
@@ -49,9 +49,10 @@ public class DawnHorse extends Animal implements IAnimatable {
     }
 
     public static AttributeSupplier.Builder createAttributes() {
-        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 10.0F).add(Attributes.MOVEMENT_SPEED, 0.25F);
+        return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40.0F).add(Attributes.MOVEMENT_SPEED, 0.2F);
     }
 
+    // todo - sounds (rip armadillo sounds from AA + pitch down)
     @Nullable
     @Override
     protected SoundEvent getDeathSound() {
@@ -72,23 +73,23 @@ public class DawnHorse extends Animal implements IAnimatable {
 
     @Override
     public float getVoicePitch() {
-        return 2.2F;
+        return 0.5F;
     }
 
     @Override
     public ItemStack getPickedResult(HitResult target) {
-        return new ItemStack(OOItems.DAWN_HORSE_SPAWN_EGG.get());
+        return new ItemStack(OOItems.DOEDICURUS_SPAWN_EGG.get());
     }
 
     @Override
     public boolean isFood(ItemStack stack) {
-        return stack.is(ItemTags.LEAVES);
+        return stack.is(Items.SWEET_BERRIES);
     }
 
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel level, AgeableMob mob) {
-        return OOEntities.DAWN_HORSE.get().create(level);
+        return OOEntities.DOEDICURUS.get().create(level);
     }
 
     @Override
@@ -99,13 +100,14 @@ public class DawnHorse extends Animal implements IAnimatable {
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walk", true));
-            event.getController().setAnimationSpeed(2.0D);
+            event.getController().setAnimationSpeed(1.75D);
+            return PlayState.CONTINUE;
         }
-        else {
+        return PlayState.STOP;
+/*        else {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
             event.getController().setAnimationSpeed(1.0D);
-        }
-        return PlayState.CONTINUE;
+        }*/
     }
 
     @Override

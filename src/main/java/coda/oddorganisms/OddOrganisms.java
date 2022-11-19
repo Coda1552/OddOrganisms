@@ -1,6 +1,7 @@
 package coda.oddorganisms;
 
 import coda.oddorganisms.common.entities.DawnHorse;
+import coda.oddorganisms.common.entities.Doedicurus;
 import coda.oddorganisms.data.EmbryoData;
 import coda.oddorganisms.data.EmbryoProvider;
 import coda.oddorganisms.registry.OOBlocks;
@@ -12,7 +13,9 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.ExperienceOrb;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
@@ -69,23 +72,46 @@ public class OddOrganisms {
     private void registerAttributes(EntityAttributeCreationEvent e) {
         e.put(OOEntities.DAWN_HORSE.get(), DawnHorse.createAttributes().build());
         e.put(OOEntities.DAWN_HORSE_RENDER.get(), BaseEntityRender.createAttributes().build());
+
+        e.put(OOEntities.DOEDICURUS.get(), Doedicurus.createAttributes().build());
+        e.put(OOEntities.DOEDICURUS_RENDER.get(), BaseEntityRender.createAttributes().build());
     }
 
     private void entityInteract(PlayerInteractEvent.EntityInteract e) {
         Player player = e.getPlayer();
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
+        int timer = 90;
 
+        // Dawn Horse
         if (e.getTarget() instanceof Horse horse) {
             CompoundTag tag = horse.getPersistentData();
 
             if (!horse.isBaby() && stack.is(OOItems.DAWN_HORSE_EMBRYO.get()) & !horse.getPersistentData().getBoolean("HasEmbryo")) {
 
                 tag.putBoolean("HasEmbryo", true);
+                tag.putString("EmbryoType", "dawn_horse");
 
                 stack.shrink(1);
 
                 horse.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
-                    embryoProvider.setTimer(300 * 20); // 5 minute timer
+                    embryoProvider.setTimer(timer); // 5 minute timer
+                });
+            }
+        }
+
+        // Doedicurus
+        if (e.getTarget() instanceof Cow cow) {
+            CompoundTag tag = cow.getPersistentData();
+
+            if (!cow.isBaby() && stack.is(OOItems.DOEDICURUS_EMBRYO.get()) & !cow.getPersistentData().getBoolean("HasEmbryo")) {
+
+                tag.putBoolean("HasEmbryo", true);
+                tag.putString("EmbryoType", "doedicurus");
+
+                stack.shrink(1);
+
+                cow.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
+                    embryoProvider.setTimer(timer); // 5 minute timer
                 });
             }
         }
@@ -98,49 +124,70 @@ public class OddOrganisms {
         if (e.getEntity() instanceof AbstractHorse horse && horse.getPersistentData().get("HasEmbryo") == null) {
             horse.getPersistentData().putBoolean("HasEmbryo", false);
         }
+        if (e.getEntity() instanceof Cow cow && cow.getPersistentData().get("HasEmbryo") == null) {
+            cow.getPersistentData().putBoolean("HasEmbryo", false);
+        }
     }
 
     private void entityTick(LivingEvent.LivingUpdateEvent e) {
-        if (e.getEntityLiving() instanceof AbstractHorse horse) {
-            var cap = horse.getCapability(EmbryoProvider.EMBRYO);
+        LivingEntity entity = e.getEntityLiving();
+        var cap = entity.getCapability(EmbryoProvider.EMBRYO);
 
-            CompoundTag tag = horse.getPersistentData();
+        CompoundTag tag = entity.getPersistentData();
 
-            if (cap.isPresent() && tag.getBoolean("HasEmbryo")) {
+        if (cap.isPresent() && tag.getBoolean("HasEmbryo")) {
 
-                cap.ifPresent(embryoData -> {
-                    int i = embryoData.getTimer();
+            cap.ifPresent(embryoData -> {
+                int i = embryoData.getTimer();
 
-                    if (i > 0) {
-                        embryoData.setTimer(i - 1);
+                if (i > 0) {
+                    embryoData.setTimer(i - 1);
+                }
+
+                else if (i == 0) {
+                    Level level = entity.level;
+
+                    tag.putBoolean("HasEmbryo", false);
+
+                    String name = tag.getString("EmbryoType");
+
+                    switch (name) {
+                        case "dawn_horse" :
+                            DawnHorse dawnHorse = OOEntities.DAWN_HORSE.get().create(level);
+
+                            dawnHorse.moveTo(entity.position());
+                            dawnHorse.setAge(-24000);
+
+                            embryoData.setTimer(300 * 20);
+                            level.addFreshEntity(dawnHorse);
+                            break;
+                        case "doedicurus" :
+                            Doedicurus doedicurus = OOEntities.DOEDICURUS.get().create(level);
+
+                            doedicurus.moveTo(entity.position());
+                            doedicurus.setAge(-24000);
+
+                            embryoData.setTimer(300 * 20);
+                            level.addFreshEntity(doedicurus);
+                            break;
                     }
 
-                    else if (i == 0) {
-                        Level level = horse.level;
-
-                        tag.putBoolean("HasEmbryo", false);
-
-                        DawnHorse dawnHorse = OOEntities.DAWN_HORSE.get().create(level);
-
-                        dawnHorse.moveTo(horse.position());
-                        dawnHorse.setAge(-24000);
-
-                        embryoData.setTimer(300 * 20);
-
-                        level.addFreshEntity(dawnHorse);
-
-                        if (level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
-                            level.addFreshEntity(new ExperienceOrb(level, horse.getX(), horse.getY(), horse.getZ(), level.getRandom().nextInt(7) + 1));
-                        }
+                    if (level.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
+                        level.addFreshEntity(new ExperienceOrb(level, entity.getX(), entity.getY(), entity.getZ(), level.getRandom().nextInt(7) + 1));
                     }
-                });
-            }
+                }
+            });
         }
     }
 
 
     private void attachCapabilitiesAnimal(AttachCapabilitiesEvent<Entity> e) {
         if (e.getObject() instanceof AbstractHorse horse && !horse.isBaby()) {
+            if (!e.getObject().getCapability(EmbryoProvider.EMBRYO).isPresent()) {
+                e.addCapability(new ResourceLocation(OddOrganisms.MOD_ID, "embryo"), new EmbryoProvider());
+            }
+        }
+        if (e.getObject() instanceof Cow cow && !cow.isBaby()) {
             if (!e.getObject().getCapability(EmbryoProvider.EMBRYO).isPresent()) {
                 e.addCapability(new ResourceLocation(OddOrganisms.MOD_ID, "embryo"), new EmbryoProvider());
             }

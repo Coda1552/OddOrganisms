@@ -33,6 +33,11 @@
           "type": "minecraft:item",
           "weight": 2,
           "name": "oddorganisms:dawn_horse_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "oddorganisms:doedicurus_flask"
         }
       ]
     }

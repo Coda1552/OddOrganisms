@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "oddorganisms:doedicurus_flask"
+    }
+  ],
+  "output": {
+    "item": "oddorganisms:doedicurus_embryo"
+  }
+}

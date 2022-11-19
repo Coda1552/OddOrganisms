@@ -1,9 +1,15 @@
 {
   "entity.oddorganisms.dawn_horse": "Dawn Horse",
+  "entity.oddorganisms.doedicurus": "Doedicurus",
 
   "item.oddorganisms.dawn_horse_spawn_egg": "Dawn Horse Spawn Egg",
   "item.oddorganisms.dawn_horse_flask": "Dawn Horse DNA Flask",
   "item.oddorganisms.dawn_horse_embryo": "Dawn Horse Embryo",
+
+  "item.oddorganisms.doedicurus_spawn_egg": "Doedicurus Spawn Egg",
+  "item.oddorganisms.doedicurus_flask": "Doedicurus DNA Flask",
+  "item.oddorganisms.doedicurus_embryo": "Doedicurus Embryo",
+
   "item.oddorganisms.cenozoic_fossil": "Cenozoic Fossil",
 
   "block.oddorganisms.terracotta_fossil": "Terracotta Fossil",

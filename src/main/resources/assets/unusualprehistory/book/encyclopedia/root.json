@@ -110,6 +110,18 @@
       "offset_y": -25,
       "linked_page": "dawn_horse.json",
       "hover_text": "Dawn Horse"
+    },
+    {
+      "entity": "oddorganisms:doedicurus_render",
+      "x": 350,
+      "y": 80,
+      "page" : 0,
+      "scale": 1.2,
+      "entity_scale": 2.2,
+      "offset_x": -25,
+      "offset_y": -25,
+      "linked_page": "doedicurus.json",
+      "hover_text": "Doedicurus"
     }
   ],
   "linked_page_buttons": [

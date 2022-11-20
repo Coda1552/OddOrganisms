@@ -12,7 +12,12 @@
 			},
 			"bones": [
 				{
+					"name": "root",
+					"pivot": [0, 0, 0]
+				},
+				{
 					"name": "body",
+					"parent": "root",
 					"pivot": [0, 7.5, -0.75],
 					"cubes": [
 						{"origin": [-8.5, 7, -11], "size": [17, 20, 19], "uv": [0, 0]},
@@ -60,38 +65,6 @@
 					]
 				},
 				{
-					"name": "leftArm",
-					"parent": "body",
-					"pivot": [5.5, 7, -7],
-					"cubes": [
-						{"origin": [2, 0, -10], "size": [5, 7, 6], "uv": [0, 75]}
-					]
-				},
-				{
-					"name": "rightArm",
-					"parent": "body",
-					"pivot": [-5.5, 7, -7],
-					"cubes": [
-						{"origin": [-7, 0, -10], "size": [5, 7, 6], "uv": [0, 75]}
-					]
-				},
-				{
-					"name": "leftLeg",
-					"parent": "body",
-					"pivot": [4.5, 7, 6],
-					"cubes": [
-						{"origin": [2, 0, 3], "size": [5, 7, 6], "uv": [0, 75]}
-					]
-				},
-				{
-					"name": "rightLeg",
-					"parent": "body",
-					"pivot": [-4.5, 7, 6],
-					"cubes": [
-						{"origin": [-7, 0, 3], "size": [5, 7, 6], "uv": [0, 75]}
-					]
-				},
-				{
 					"name": "head",
 					"parent": "body",
 					"pivot": [0, 10, -11],
@@ -103,7 +76,7 @@
 				{
 					"name": "leftEar",
 					"parent": "head",
-					"pivot": [0, 15, -15],
+					"pivot": [3.5, 15, -13],
 					"cubes": [
 						{"origin": [3, 15, -14], "size": [1, 1, 2], "uv": [42, 101]}
 					]
@@ -111,9 +84,41 @@
 				{
 					"name": "rightEar",
 					"parent": "head",
-					"pivot": [0, 15, -15],
+					"pivot": [-3.5, 15, -13],
 					"cubes": [
 						{"origin": [-4, 15, -14], "size": [1, 1, 2], "uv": [42, 101]}
+					]
+				},
+				{
+					"name": "leftArm",
+					"parent": "root",
+					"pivot": [5.5, 7, -7],
+					"cubes": [
+						{"origin": [2, 0, -10], "size": [5, 7, 6], "uv": [0, 75]}
+					]
+				},
+				{
+					"name": "rightArm",
+					"parent": "root",
+					"pivot": [-5.5, 7, -7],
+					"cubes": [
+						{"origin": [-7, 0, -10], "size": [5, 7, 6], "uv": [0, 75]}
+					]
+				},
+				{
+					"name": "leftLeg",
+					"parent": "root",
+					"pivot": [4.5, 7, 6],
+					"cubes": [
+						{"origin": [2, 0, 3], "size": [5, 7, 6], "uv": [0, 75]}
+					]
+				},
+				{
+					"name": "rightLeg",
+					"parent": "root",
+					"pivot": [-4.5, 7, 6],
+					"cubes": [
+						{"origin": [-7, 0, 3], "size": [5, 7, 6], "uv": [0, 75]}
 					]
 				}
 			]

@@ -29,7 +29,7 @@ displayName="Odd Organisms" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 #ogoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Peeko for Unusual Prehistory, Wadoo for animations" #optional
+credits="Peeko for Unusual Prehistory, Wadoo, Orca, & Hirbbert for animations" #optional
 # A text field displayed in the mod UI
 authors="Coda" #optional
 # The description text for the mod (multi line!) (#mandatory)
@@ -58,6 +58,6 @@ This is an addon to the Unusual Prehistory mod by Peeko32213 that adds more anim
 [[dependencies.oddorganisms]]
     modId="unusualprehistory"
     mandatory=true
-    versionRange="[1.0.1,1.0.2)"
+    versionRange="[1.0.1,1.1.0)"
     ordering="BEFORE"
     side="BOTH"

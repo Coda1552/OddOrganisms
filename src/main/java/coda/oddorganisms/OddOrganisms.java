@@ -4,10 +4,7 @@ import coda.oddorganisms.common.entities.DawnHorse;
 import coda.oddorganisms.common.entities.Doedicurus;
 import coda.oddorganisms.data.EmbryoData;
 import coda.oddorganisms.data.EmbryoProvider;
-import coda.oddorganisms.registry.OOBlocks;
-import coda.oddorganisms.registry.OOEntities;
-import coda.oddorganisms.registry.OOItems;
-import coda.oddorganisms.registry.OOPlacedFeatures;
+import coda.oddorganisms.registry.*;
 import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -49,6 +46,7 @@ public class OddOrganisms {
         OOEntities.ENTITIES.register(bus);
         OOItems.ITEMS.register(bus);
         OOBlocks.BLOCKS.register(bus);
+        OOSounds.SOUNDS.register(bus);
 
         forgeBus.addListener(this::entityInteract);
         forgeBus.addListener(this::entityTick);

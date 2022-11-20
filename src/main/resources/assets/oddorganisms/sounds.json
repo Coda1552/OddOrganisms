@@ -1,0 +1,29 @@
+{
+  "doedicurus.ambient": {
+    "subtitle": "oddorganisms.doedicurus.ambient",
+    "sounds": [
+      {
+        "name": "oddorganisms:doedicurus/ambient",
+        "stream": true
+      }
+    ]
+  },
+  "doedicurus.death": {
+    "subtitle": "oddorganisms.doedicurus.death",
+    "sounds": [
+      {
+        "name": "oddorganisms:doedicurus/death",
+        "stream": true
+      }
+    ]
+  },
+  "doedicurus.hurt": {
+    "subtitle": "oddorganisms.doedicurus.hurt",
+    "sounds": [
+      {
+        "name": "oddorganisms:doedicurus/hurt",
+        "stream": true
+      }
+    ]
+  }
+}

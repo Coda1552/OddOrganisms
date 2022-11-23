@@ -1,6 +1,7 @@
 package coda.oddorganisms.registry;
 
 import coda.oddorganisms.OddOrganisms;
+import coda.oddorganisms.common.items.DoedicurusChestplateItem;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -19,6 +20,7 @@ public class OOItems {
         }
     };
 
+    public static final RegistryObject<Item> DOEDICURUS_CHESTPLATE = ITEMS.register("doedicurus_chestplate", DoedicurusChestplateItem::new);
     public static final RegistryObject<Item> DAWN_HORSE_FLASK = ITEMS.register("dawn_horse_flask", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> DOEDICURUS_FLASK = ITEMS.register("doedicurus_flask", () -> new Item(new Item.Properties().tab(GROUP)));
 

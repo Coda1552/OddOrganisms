@@ -37,6 +37,7 @@ public class Doedicurus extends Animal implements IAnimatable {
 
     public Doedicurus(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);
+        this.maxUpStep = 1.1f;
     }
 
     @Override
@@ -105,13 +106,12 @@ public class Doedicurus extends Animal implements IAnimatable {
         if (event.isMoving()) {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("walk", true));
             event.getController().setAnimationSpeed(1.75D);
-            return PlayState.CONTINUE;
         }
         else {
             event.getController().setAnimation(new AnimationBuilder().addAnimation("idle", true));
             event.getController().setAnimationSpeed(1.0D);
-            return PlayState.CONTINUE;
         }
+        return PlayState.CONTINUE;
     }
 
     @Override

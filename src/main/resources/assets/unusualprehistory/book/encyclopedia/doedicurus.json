@@ -13,7 +13,7 @@
   ],
   "entity_renders": [
     {
-      "entity": "oddorganisms:doedicurus",
+      "entity": "oddorganisms:doedicurus_render",
       "x": 90,
       "y": 100,
       "page" : 0,

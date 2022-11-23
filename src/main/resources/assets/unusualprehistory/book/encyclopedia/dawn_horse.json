@@ -13,7 +13,7 @@
   ],
   "entity_renders": [
     {
-      "entity": "oddorganisms:dawn_horse",
+      "entity": "oddorganisms:dawn_horse_render",
       "x": 90,
       "y": 100,
       "page" : 0,

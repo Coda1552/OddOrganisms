@@ -15,5 +15,10 @@
 
   "block.oddorganisms.terracotta_fossil": "Terracotta Fossil",
 
-  "itemGroup.oddorganisms": "Odd Organisms"
+  "itemGroup.oddorganisms": "Odd Organisms",
+
+  "oddorganisms.doedicurus.ambient": "Doedicurus grunts",
+  "oddorganisms.doedicurus.hurt": "Doedicurus hurts",
+  "oddorganisms.doedicurus.death": "Doedicurus dies"
+
 }

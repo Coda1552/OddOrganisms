@@ -46,7 +46,6 @@ public class Doedicurus extends Animal implements IAnimatable {
         this.goalSelector.addGoal(0, new PanicGoal(this, 1.0F));
         this.goalSelector.addGoal(0, new MeleeAttackGoal(this, 1.0D, true));
         this.goalSelector.addGoal(1, new FollowParentGoal(this, 1.0F));
-        this.goalSelector.addGoal(2, new BreedGoal(this, 1.0F));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D, Ingredient.of(ItemTags.LEAVES), false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
         this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 6.0F));

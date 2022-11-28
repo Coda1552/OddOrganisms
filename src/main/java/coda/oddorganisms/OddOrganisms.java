@@ -8,7 +8,10 @@ import coda.oddorganisms.registry.*;
 import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -28,10 +31,13 @@ import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -53,9 +59,33 @@ public class OddOrganisms {
         forgeBus.addGenericListener(Entity.class, this::attachCapabilitiesAnimal);
         forgeBus.addListener(this::addEntityGoals);
         forgeBus.addListener(this::addOres);
+        forgeBus.addListener(this::livingDamage);
+        forgeBus.addListener(this::playerAttack);
 
         bus.addListener(this::registerAttributes);
         bus.addListener(this::registerCapabilities);
+    }
+
+    private void livingDamage(LivingDamageEvent e) {
+        if (e.getEntity() instanceof Player player && player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown() && isValidSource(e.getSource())) {
+            ItemStack chestplate = player.getItemBySlot(EquipmentSlot.CHEST);
+
+            chestplate.hurtAndBreak((int) e.getAmount(), player, p -> p.broadcastBreakEvent(EquipmentSlot.CHEST));
+
+            player.playSound(SoundEvents.SHIELD_BLOCK, 1.0F, 1.0F);
+
+            e.setCanceled(true);
+        }
+    }
+
+    private boolean isValidSource(DamageSource source) {
+        return !source.isFire() && !source.isMagic() && !source.isFall();
+    }
+
+    private void playerAttack(AttackEntityEvent e) {
+        if (e.getEntity() instanceof Player player && player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) {
+            e.setCanceled(true);
+        }
     }
 
     private void addOres(BiomeLoadingEvent event) {

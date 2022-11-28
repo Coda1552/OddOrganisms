@@ -24,22 +24,6 @@ public class DoedicurusChestplateItem extends GeoArmorItem implements IAnimatabl
     }
 
     @Override
-    public void onArmorTick(ItemStack stack, Level world, Player player) {
-        /*if (player.isShiftKeyDown() && player.isAlive()) {
-            player.setInvulnerable(true);
-            player.setJumping(false);
-            player.setDeltaMovement(player.getDeltaMovement().multiply(0.0D, 1.0D, 0.0D));
-            if (player.tickCount % 40 == 0) {
-                stack.hurtAndBreak(1, player, e -> e.broadcastBreakEvent(EquipmentSlot.CHEST));
-            }
-        }
-        else if (!player.isShiftKeyDown()) {
-            player.setInvulnerable(false);
-            player.setJumping(true);
-        }*/
-    }
-
-    @Override
     public void registerControllers(AnimationData data) {
     }
 

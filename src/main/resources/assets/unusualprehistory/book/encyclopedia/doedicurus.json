@@ -7,8 +7,24 @@
   "images": [
   ],
   "item_renders": [
+    {
+      "item" : "oddorganisms:doedicurus_osteoderm",
+      "x": 105,
+      "y": 7,
+      "page": 0,
+      "scale": 2.5
+    }
   ],
-  "recipes": [],
+  "recipes": [
+    {
+      "recipe": "oddorganisms:doedicurus_chestplate",
+      "shapeless": false,
+      "x": 15,
+      "y": 65,
+      "page": 1,
+      "scale": 1.3
+    }
+  ],
   "tabula_renders": [
   ],
   "entity_renders": [

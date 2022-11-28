@@ -10,15 +10,13 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ExperienceOrb;
-import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
 import net.minecraft.world.entity.animal.horse.Horse;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
@@ -72,9 +70,17 @@ public class OddOrganisms {
 
             chestplate.hurtAndBreak((int) e.getAmount(), player, p -> p.broadcastBreakEvent(EquipmentSlot.CHEST));
 
-            player.playSound(SoundEvents.SHIELD_BLOCK, 1.0F, 1.0F);
-
             e.setCanceled(true);
+        }
+        else if (e.getSource().getEntity() instanceof Doedicurus doedicurus && e.getEntity() instanceof Player player) {
+            if (player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) return;
+
+            ItemEntity item = EntityType.ITEM.create(doedicurus.level);
+
+            item.moveTo(doedicurus.position());
+            item.setItem(new ItemStack(OOItems.DOEDICURUS_OSTEODERM.get(), doedicurus.getRandom().nextInt(2)));
+
+            doedicurus.level.addFreshEntity(item);
         }
     }
 
@@ -84,6 +90,7 @@ public class OddOrganisms {
 
     private void playerAttack(AttackEntityEvent e) {
         if (e.getEntity() instanceof Player player && player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) {
+            player.playSound(SoundEvents.SHIELD_BLOCK, 1.0F, 1.0F);
             e.setCanceled(true);
         }
     }

@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X X",
+    "XXX",
+    "XXX"
+  ],
+  "key": {
+    "X": {
+      "item": "oddorganisms:doedicurus_osteoderm"
+    }
+  },
+  "result": {
+    "item": "oddorganisms:doedicurus_chestplate"
+  }
+}

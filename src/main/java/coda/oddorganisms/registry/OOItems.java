@@ -21,6 +21,7 @@ public class OOItems {
     };
 
     public static final RegistryObject<Item> DOEDICURUS_CHESTPLATE = ITEMS.register("doedicurus_chestplate", DoedicurusChestplateItem::new);
+    public static final RegistryObject<Item> DOEDICURUS_OSTEODERM = ITEMS.register("doedicurus_osteoderm", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> DAWN_HORSE_FLASK = ITEMS.register("dawn_horse_flask", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> DOEDICURUS_FLASK = ITEMS.register("doedicurus_flask", () -> new Item(new Item.Properties().tab(GROUP)));
 

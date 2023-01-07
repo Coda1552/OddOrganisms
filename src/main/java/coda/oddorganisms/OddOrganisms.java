@@ -1,5 +1,6 @@
 package coda.oddorganisms;
 
+import coda.oddorganisms.common.entities.Apthoroblattina;
 import coda.oddorganisms.common.entities.DawnHorse;
 import coda.oddorganisms.common.entities.Doedicurus;
 import coda.oddorganisms.common.entities.Eolactoria;
@@ -114,6 +115,9 @@ public class OddOrganisms {
 
         e.put(OOEntities.EOLACTORIA.get(), Eolactoria.createAttributes().build());
         e.put(OOEntities.EOLACTORIA_RENDER.get(), BaseEntityRender.createAttributes().build());
+
+        e.put(OOEntities.APTHOROBLATTINA.get(), Apthoroblattina.createAttributes().build());
+        e.put(OOEntities.APTHOROBLATTINA_RENDER.get(), BaseEntityRender.createAttributes().build());
     }
 
     private void entityInteract(PlayerInteractEvent.EntityInteract e) {

@@ -1,0 +1,25 @@
+package coda.oddorganisms.client.models;
+
+import coda.oddorganisms.OddOrganisms;
+import coda.oddorganisms.common.entities.Apthoroblattina;
+import coda.oddorganisms.common.entities.DawnHorse;
+import net.minecraft.resources.ResourceLocation;
+import software.bernie.geckolib3.model.AnimatedGeoModel;
+
+public class ApthoroblattinaModel extends AnimatedGeoModel<Apthoroblattina> {
+
+    @Override
+    public ResourceLocation getModelLocation(Apthoroblattina object) {
+        return new ResourceLocation(OddOrganisms.MOD_ID, "geo/apthoroblattina.geo.json");
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(Apthoroblattina object) {
+        return new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/apthoroblattina.png");
+    }
+
+    @Override
+    public ResourceLocation getAnimationFileLocation(Apthoroblattina animatable) {
+        return new ResourceLocation(OddOrganisms.MOD_ID, "animations/apthoroblattina.animation.json");
+    }
+}

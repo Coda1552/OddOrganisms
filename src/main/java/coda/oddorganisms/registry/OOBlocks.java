@@ -1,6 +1,11 @@
 package coda.oddorganisms.registry;
 
 import coda.oddorganisms.OddOrganisms;
+import coda.oddorganisms.common.blocks.EolactoriaEggsBlock;
+import com.peeko32213.unusualprehistory.UnusualPrehistory;
+import com.peeko32213.unusualprehistory.common.block.BlockAmmoniteEggs;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.WaterLilyBlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
@@ -13,5 +18,5 @@ public class OOBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OddOrganisms.MOD_ID);
 
     public static final RegistryObject<Block> TERRACOTTA_FOSSIL = BLOCKS.register("terracotta_fossil", () -> new Block(BlockBehaviour.Properties.of(Material.STONE, MaterialColor.COLOR_ORANGE).requiresCorrectToolForDrops().strength(1.25F, 4.2F)));
-
+    public static final RegistryObject<Block> EOLACTORIA_EGGS = BLOCKS.register("eolactoria_eggs", () -> new EolactoriaEggsBlock(BlockBehaviour.Properties.of(Material.BUILDABLE_GLASS).instabreak().noDrops().noOcclusion().noCollission()));
 }

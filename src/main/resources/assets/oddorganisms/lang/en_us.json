@@ -1,6 +1,7 @@
 {
   "entity.oddorganisms.dawn_horse": "Dawn Horse",
   "entity.oddorganisms.doedicurus": "Doedicurus",
+  "entity.oddorganisms.eolactoria": "Eolactoria",
 
   "item.oddorganisms.dawn_horse_spawn_egg": "Dawn Horse Spawn Egg",
   "item.oddorganisms.dawn_horse_flask": "Dawn Horse DNA Flask",
@@ -10,11 +11,15 @@
   "item.oddorganisms.doedicurus_flask": "Doedicurus DNA Flask",
   "item.oddorganisms.doedicurus_embryo": "Doedicurus Embryo",
 
+  "item.oddorganisms.eolactoria_spawn_egg": "Eolactoria Spawn Egg",
+  "item.oddorganisms.eolactoria_flask": "Eolactoria Flask",
+
   "item.oddorganisms.cenozoic_fossil": "Cenozoic Fossil",
   "item.oddorganisms.doedicurus_chestplate": "Doedicurus Chestplate",
   "item.oddorganisms.doedicurus_osteoderm": "Doedicurus Osteoderm",
 
   "block.oddorganisms.terracotta_fossil": "Terracotta Fossil",
+  "block.oddorganisms.eolactoria_eggs": "Eolactoria Eggs",
 
   "itemGroup.oddorganisms": "Odd Organisms",
 

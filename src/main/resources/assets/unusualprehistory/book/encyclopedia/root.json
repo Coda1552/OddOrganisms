@@ -122,6 +122,30 @@
       "offset_y": -10,
       "linked_page": "doedicurus.json",
       "hover_text": "Doedicurus"
+    },
+    {
+      "entity": "oddorganisms:eolactoria_render",
+      "x": 230,
+      "y": 120,
+      "page" : 0,
+      "scale": 1.2,
+      "entity_scale": 1.25,
+      "offset_x": -7,
+      "offset_y": -10,
+      "linked_page": "eolactoria.json",
+      "hover_text": "Eolactoria"
+    },
+    {
+      "entity": "oddorganisms:apthoroblattina_render",
+      "x": 260,
+      "y": 120,
+      "page" : 0,
+      "scale": 1.2,
+      "entity_scale": 1.25,
+      "offset_x": -10,
+      "offset_y": -10,
+      "linked_page": "apthoroblattina.json",
+      "hover_text": "Apthoroblattina"
     }
   ],
   "linked_page_buttons": [

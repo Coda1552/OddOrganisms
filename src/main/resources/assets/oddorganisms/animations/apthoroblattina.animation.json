@@ -1,47 +1,7 @@
 {
 	"format_version": "1.8.0",
 	"animations": {
-		"animation.model.new": {
-			"loop": true,
-			"bones": {
-				"head": {
-					"rotation": {
-						"vector": [-7.5, -7.5, 0]
-					}
-				},
-				"leftLeg1": {
-					"rotation": {
-						"vector": [0, -12.5, 0]
-					}
-				},
-				"leftLeg2": {
-					"rotation": {
-						"vector": [0, 15, 0]
-					}
-				},
-				"rightAntenna": {
-					"rotation": {
-						"vector": [1.28918, 11.69546, 22.4287]
-					}
-				},
-				"leftAntenna": {
-					"rotation": {
-						"vector": [-10.15108, -9.84655, -13.24622]
-					}
-				},
-				"leftWing": {
-					"rotation": {
-						"vector": [7.56397, -7.43547, -0.98448]
-					}
-				},
-				"rightWing": {
-					"rotation": {
-						"vector": [5, 7.5, 0]
-					}
-				}
-			}
-		},
-		"animation.model.walk": {
+		"walk": {
 			"loop": true,
 			"animation_length": 2,
 			"bones": {
@@ -128,7 +88,7 @@
 				}
 			}
 		},
-		"animation.model.idle": {
+		"idle": {
 			"loop": true,
 			"animation_length": 8,
 			"bones": {

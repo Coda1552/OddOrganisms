@@ -5,9 +5,12 @@ import coda.oddorganisms.client.models.DoedicurusChestplateModel;
 import coda.oddorganisms.client.models.render.DawnHorseRenderModel;
 import coda.oddorganisms.client.models.render.DoedicurusRenderModel;
 import coda.oddorganisms.client.models.render.EolactoriaRenderModel;
+import coda.oddorganisms.client.renders.ApthoroblattinaRenderer;
 import coda.oddorganisms.client.renders.DawnHorseRenderer;
 import coda.oddorganisms.client.renders.DoedicurusRenderer;
 import coda.oddorganisms.client.renders.EolactoriaRenderer;
+import coda.oddorganisms.client.models.render.ApthoroblattinaRenderModel;
+import coda.oddorganisms.client.renders.render.ApthoroblattinaRenderRenderer;
 import coda.oddorganisms.client.renders.render.EolactoriaRenderRenderer;
 import coda.oddorganisms.client.renders.armor.ArmorItemRenderer;
 import coda.oddorganisms.client.renders.render.DawnHorseRenderRenderer;
@@ -34,11 +37,13 @@ public class ClientEvents {
         EntityRenderers.register(OOEntities.DAWN_HORSE.get(), DawnHorseRenderer::new);
         EntityRenderers.register(OOEntities.DOEDICURUS.get(), DoedicurusRenderer::new);
         EntityRenderers.register(OOEntities.EOLACTORIA.get(), EolactoriaRenderer::new);
+        EntityRenderers.register(OOEntities.APTHOROBLATTINA.get(), ApthoroblattinaRenderer::new);
 
         // Renders
         EntityRenderers.register(OOEntities.DAWN_HORSE_RENDER.get(), DawnHorseRenderRenderer::new);
         EntityRenderers.register(OOEntities.DOEDICURUS_RENDER.get(), DoedicurusRenderRenderer::new);
         EntityRenderers.register(OOEntities.EOLACTORIA_RENDER.get(), EolactoriaRenderRenderer::new);
+        EntityRenderers.register(OOEntities.APTHOROBLATTINA_RENDER.get(), ApthoroblattinaRenderRenderer::new);
 
         ItemBlockRenderTypes.setRenderLayer(OOBlocks.EOLACTORIA_EGGS.get(), RenderType.cutout());
     }
@@ -48,6 +53,7 @@ public class ClientEvents {
         e.registerLayerDefinition(DawnHorseRenderModel.LAYER_LOCATION, DawnHorseRenderModel::createBodyLayer);
         e.registerLayerDefinition(DoedicurusRenderModel.LAYER_LOCATION, DoedicurusRenderModel::createBodyLayer);
         e.registerLayerDefinition(EolactoriaRenderModel.LAYER_LOCATION, EolactoriaRenderModel::createBodyLayer);
+        e.registerLayerDefinition(ApthoroblattinaRenderModel.LAYER_LOCATION, ApthoroblattinaRenderModel::createBodyLayer);
     }
 
 

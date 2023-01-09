@@ -2,6 +2,7 @@
   "entity.oddorganisms.dawn_horse": "Dawn Horse",
   "entity.oddorganisms.doedicurus": "Doedicurus",
   "entity.oddorganisms.eolactoria": "Eolactoria",
+  "entity.oddorganisms.apthoroblattina": "Apthoroblattina",
 
   "item.oddorganisms.dawn_horse_spawn_egg": "Dawn Horse Spawn Egg",
   "item.oddorganisms.dawn_horse_flask": "Dawn Horse DNA Flask",
@@ -14,6 +15,10 @@
   "item.oddorganisms.eolactoria_spawn_egg": "Eolactoria Spawn Egg",
   "item.oddorganisms.eolactoria_flask": "Eolactoria Flask",
   "item.oddorganisms.eolactoria_bucket": "Bucket of Eolactoria",
+
+  "item.oddorganisms.apthoroblattina_spawn_egg": "Apthoroblattina Spawn Egg",
+  "item.oddorganisms.apthoroblattina_flask": "Apthoroblattina Flask",
+  "item.oddorganisms.apthoroblattina_ootheca": "Apthoroblattina Ootheca",
 
   "item.oddorganisms.cenozoic_fossil": "Cenozoic Fossil",
   "item.oddorganisms.doedicurus_chestplate": "Doedicurus Chestplate",

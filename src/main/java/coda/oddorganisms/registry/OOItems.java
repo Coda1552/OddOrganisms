@@ -2,6 +2,7 @@ package coda.oddorganisms.registry;
 
 import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.items.DoedicurusChestplateItem;
+import coda.oddorganisms.common.items.OothecaItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluids;
@@ -30,7 +31,7 @@ public class OOItems {
     public static final RegistryObject<Item> DAWN_HORSE_EMBRYO = ITEMS.register("dawn_horse_embryo", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> DOEDICURUS_EMBRYO = ITEMS.register("doedicurus_embryo", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> EOLACTORIA_EGGS = ITEMS.register("eolactoria_eggs", () -> new WaterLilyBlockItem(OOBlocks.EOLACTORIA_EGGS.get(), new Item.Properties().tab(GROUP)));
-    public static final RegistryObject<Item> APTHOROBLATTINA_OOTHECA = ITEMS.register("apthoroblattina_ootheca", () -> new Item(new Item.Properties().tab(GROUP)));
+    public static final RegistryObject<Item> APTHOROBLATTINA_OOTHECA = ITEMS.register("apthoroblattina_ootheca", () -> new OothecaItem(new Item.Properties().tab(GROUP)));
 
     public static final RegistryObject<Item> DAWN_HORSE_SPAWN_EGG = ITEMS.register("dawn_horse_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DAWN_HORSE, 0xb89268, 0xffe5b1, new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> DOEDICURUS_SPAWN_EGG = ITEMS.register("doedicurus_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DOEDICURUS, 0x694628, 0x926f40, new Item.Properties().tab(GROUP)));

@@ -15,7 +15,7 @@ public class ApthoroblattinaModel extends AnimatedGeoModel<Apthoroblattina> {
 
     @Override
     public ResourceLocation getTextureLocation(Apthoroblattina object) {
-        return new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/apthoroblattina.png");
+        return object.isBaby() ? new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/apthoroblattina_baby.png") : new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/apthoroblattina.png");
     }
 
     @Override

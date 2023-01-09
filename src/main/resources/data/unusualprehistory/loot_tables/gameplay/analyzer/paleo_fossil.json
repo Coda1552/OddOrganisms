@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:chest",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:coal"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:cobblestone"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 5,
+          "name": "minecraft:bone"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "unusualprehistory:ammonite_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "unusualprehistory:scau_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2.5,
+          "name": "unusualprehistory:coty_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2.5,
+          "name": "unusualprehistory:stetha_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 1,
+          "name": "unusualprehistory:dunk_flask"
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 3,
+          "name": "oddorganisms:apthoroblattina_flask"
+        }
+      ]
+    }
+  ]
+}

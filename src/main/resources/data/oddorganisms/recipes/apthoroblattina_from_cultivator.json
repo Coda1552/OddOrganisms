@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "oddorganisms:apthoroblattina_flask"
+    }
+  ],
+  "output": {
+    "item": "oddorganisms:apthoroblattina_ootheca"
+  }
+}

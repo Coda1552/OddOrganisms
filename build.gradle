@@ -147,7 +147,7 @@ dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
 
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.18:3.0.32')
-    implementation fg.deobf('curse.maven:unusual-prehistory-forge-696283:4075971')
+    implementation fg.deobf('curse.maven:unusual-prehistory-forge-696283:4368117')
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

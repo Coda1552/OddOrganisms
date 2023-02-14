@@ -4,17 +4,15 @@ import java.util.Random;
 
 import coda.oddorganisms.common.entities.Eolactoria;
 import coda.oddorganisms.registry.OOEntities;
-import com.peeko32213.unusualprehistory.common.entity.EntityAmmonite;
-import com.peeko32213.unusualprehistory.core.registry.UPEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
@@ -47,7 +45,7 @@ public class EolactoriaEggsBlock extends Block {
         level.scheduleTick(pos, this, hatchTime(level.getRandom()));
     }
 
-    private static int hatchTime(Random random) {
+    private static int hatchTime(RandomSource random) {
         return random.nextInt(3600, 12000);
     }
 

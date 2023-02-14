@@ -30,14 +30,12 @@ import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -121,7 +119,7 @@ public class OddOrganisms {
     }
 
     private void entityInteract(PlayerInteractEvent.EntityInteract e) {
-        Player player = e.getPlayer();
+        Player player = e.getEntity();
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
         int timer = 90;
 
@@ -160,7 +158,7 @@ public class OddOrganisms {
         }
     }
 
-    private void addEntityGoals(EntityJoinWorldEvent e) {
+    private void addEntityGoals(EntityJoinLevelEvent e) {
         if (e.getEntity() instanceof Wolf wolf) {
             wolf.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(wolf, DawnHorse.class, true));
         }
@@ -172,8 +170,8 @@ public class OddOrganisms {
         }
     }
 
-    private void entityTick(LivingEvent.LivingUpdateEvent e) {
-        LivingEntity entity = e.getEntityLiving();
+    private void entityTick(LivingEvent.LivingTickEvent e) {
+        LivingEntity entity = e.getEntity();
         var cap = entity.getCapability(EmbryoProvider.EMBRYO);
 
         CompoundTag tag = entity.getPersistentData();

@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class EolactoriaModel extends AnimatedGeoModel<Eolactoria> {
 
     @Override
-    public ResourceLocation getModelLocation(Eolactoria object) {
+    public ResourceLocation getModelResource(Eolactoria object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "geo/eolactoria.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Eolactoria object) {
+    public ResourceLocation getTextureResource(Eolactoria object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/eolactoria.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(Eolactoria animatable) {
+    public ResourceLocation getAnimationResource(Eolactoria animatable) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "animations/eolactoria.animation.json");
     }
 }

@@ -38,7 +38,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'official', version: '1.18.2'
+    mappings channel: 'official', version: '1.19.2'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg') // Currently, this location cannot be changed from the default.
 
@@ -144,10 +144,10 @@ repositories {
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.18.2-40.1.0'
+    minecraft 'net.minecraftforge:forge:1.19.2-43.1.0'
 
-    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.18:3.0.53')
-    implementation fg.deobf('curse.maven:unusual-prehistory-forge-696283:4368117')
+    implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.39')
+    //implementation fg.deobf('curse.maven:unusual-prehistory-forge-696283:4368117')
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

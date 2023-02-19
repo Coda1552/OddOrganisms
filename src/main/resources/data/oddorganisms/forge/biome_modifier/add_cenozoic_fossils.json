@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": ["#oddorganisms:has_cenozoic_fossil"],
+  "biomes": "#minecraft:is_badlands",
   "features": "oddorganisms:terracotta_fossil",
   "step": "underground_ores"
 }

@@ -141,12 +141,19 @@ sourceSets.main.resources { srcDir 'src/generated/resources' }
 repositories {
     maven { url "https://www.cursemaven.com" }
     maven { url 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/' }
+
+     flatDir {
+         dir 'libs'
+     }
 }
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.19.2-43.1.0'
 
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.19:3.1.39')
+
+    implementation fg.deobf("com.peeko32213.unusualprehistory:unusualprehistory-1.1.2:1.19.2")
+
     //implementation fg.deobf('curse.maven:unusual-prehistory-forge-696283:4368117')
 }
 

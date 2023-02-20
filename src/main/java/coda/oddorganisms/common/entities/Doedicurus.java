@@ -34,7 +34,6 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class Doedicurus extends Animal implements IAnimatable {
-    private final AnimationFactory factory = new AnimationFactory(this);
 
     public Doedicurus(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);

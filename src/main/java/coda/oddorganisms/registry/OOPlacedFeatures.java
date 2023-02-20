@@ -1,7 +1,6 @@
 package coda.oddorganisms.registry;
 
-import com.peeko32213.unusualprehistory.UnusualPrehistory;
-import com.peeko32213.unusualprehistory.core.registry.UPConfiguredFeatures;
+import coda.oddorganisms.OddOrganisms;
 import net.minecraft.core.Holder;
 import net.minecraft.data.BuiltinRegistries;
 import net.minecraft.resources.ResourceLocation;
@@ -13,10 +12,11 @@ import net.minecraft.world.level.levelgen.placement.*;
 import java.util.List;
 
 public class OOPlacedFeatures {
-    public static final Holder<PlacedFeature> TERRACOTTA_FOSSIL = registerPlacedFeature("terracotta_fossil", OOConfiguredFeatures.TERRACOTTA_FOSSIL, commonOrePlacement(100, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(128))));
+/*    public static final Holder<PlacedFeature> TERRACOTTA_FOSSIL = registerPlacedFeature("terracotta_fossil", OOConfiguredFeatures.TERRACOTTA_FOSSIL, commonOrePlacement(100, HeightRangePlacement.uniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(128))));
 
     public static <FC extends FeatureConfiguration> Holder<PlacedFeature> registerPlacedFeature(String id, Holder<ConfiguredFeature<FC, ?>> feature, List<PlacementModifier> placementModifiers) {
-        ResourceLocation resourceLocation = new ResourceLocation(UnusualPrehistory.MODID, id);
+        ResourceLocation resourceLocation = new ResourceLocation(OddOrganisms.MOD_ID, id);
+
         if (BuiltinRegistries.PLACED_FEATURE.keySet().contains(resourceLocation))
             throw new IllegalStateException("Placed Feature ID: \"" + resourceLocation + "\" already exists in the Placed Features registry!");
 
@@ -31,6 +31,6 @@ public class OOPlacedFeatures {
 
     private static List<PlacementModifier> commonOrePlacement(int count, PlacementModifier modifier) {
         return orePlacement(CountPlacement.of(count), modifier);
-    }
+    }*/
 
 }

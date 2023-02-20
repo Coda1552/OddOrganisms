@@ -112,7 +112,7 @@ public class OddOrganisms {
     private void entityInteract(PlayerInteractEvent.EntityInteract e) {
         Player player = e.getEntity();
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-        int timer = 90;
+        int timer = 6000;
 
         // Dawn Horse
         if (e.getTarget() instanceof Horse horse) {
@@ -123,7 +123,9 @@ public class OddOrganisms {
                 tag.putBoolean("HasEmbryo", true);
                 tag.putString("EmbryoType", "dawn_horse");
 
-                stack.shrink(1);
+                if (!player.isCreative()) {
+                    stack.shrink(1);
+                }
 
                 horse.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
                     embryoProvider.setTimer(timer); // 5 minute timer
@@ -140,7 +142,9 @@ public class OddOrganisms {
                 tag.putBoolean("HasEmbryo", true);
                 tag.putString("EmbryoType", "doedicurus");
 
-                stack.shrink(1);
+                if (!player.isCreative()) {
+                    stack.shrink(1);
+                }
 
                 cow.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
                     embryoProvider.setTimer(timer); // 5 minute timer

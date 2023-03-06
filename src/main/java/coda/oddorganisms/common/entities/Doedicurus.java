@@ -32,10 +32,10 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class Doedicurus extends Animal implements IAnimatable {
+    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
     public Doedicurus(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);
-        this.maxUpStep = 1.1f;
     }
 
     @Override
@@ -52,6 +52,11 @@ public class Doedicurus extends Animal implements IAnimatable {
 
     public static AttributeSupplier.Builder createAttributes() {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40.0F).add(Attributes.MOVEMENT_SPEED, 0.2F).add(Attributes.ATTACK_DAMAGE, 4.0F);
+    }
+
+    @Override
+    public float getStepHeight() {
+        return 1.1F;
     }
 
     @Nullable
@@ -74,7 +79,7 @@ public class Doedicurus extends Animal implements IAnimatable {
 
     @Override
     public float getVoicePitch() {
-        return -20F;
+        return 1.0F;
     }
 
     @Override
@@ -112,6 +117,6 @@ public class Doedicurus extends Animal implements IAnimatable {
 
     @Override
     public AnimationFactory getFactory() {
-        return GeckoLibUtil.createFactory(this);
+        return factory;
     }
 }

@@ -25,6 +25,7 @@ import software.bernie.geckolib3.core.manager.AnimationFactory;
 import software.bernie.geckolib3.util.GeckoLibUtil;
 
 public class Apthoroblattina extends Animal implements IAnimatable {
+    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
 
     public Apthoroblattina(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);
@@ -72,7 +73,7 @@ public class Apthoroblattina extends Animal implements IAnimatable {
 
     @Override
     public AnimationFactory getFactory() {
-        return GeckoLibUtil.createFactory(this);
+        return factory;
     }
 
 }

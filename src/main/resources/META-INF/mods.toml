@@ -29,7 +29,7 @@ displayName="Odd Organisms" #mandatory
 # A file name (in the root of the mod JAR) containing a logo for display
 #ogoFile="examplemod.png" #optional
 # A text field displayed in the mod UI
-credits="Peeko for Unusual Prehistory, and Wadoo, Orca, Hirbbert, Alpha Gec for animations" #optional
+credits="Peeko for Unusual Prehistory, Mango for sounds, and Wadoo, Orca, Hirbbert, Alpha Gec for animations" #optional
 # A text field displayed in the mod UI
 authors="Coda" #optional
 # The description text for the mod (multi line!) (#mandatory)

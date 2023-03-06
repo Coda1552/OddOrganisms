@@ -131,7 +131,7 @@
       "scale": 1.2,
       "entity_scale": 0.8,
       "offset_x": -10,
-      "offset_y": 55,
+      "offset_y": 85,
       "linked_page": "brachi.json",
       "hover_text": "Brachiosaurus"
     },
@@ -172,16 +172,16 @@
       "hover_text": "Encrusted"
     },
     {
-      "entity": "oddorganisms:dawn_horse_render",
+      "entity": "unusualprehistory:eryon_render",
       "x": 350,
       "y": 120,
       "page" : 0,
       "scale": 1.2,
-      "entity_scale": 2.2,
-      "offset_x": -25,
-      "offset_y": -25,
-      "linked_page": "dawn_horse.json",
-      "hover_text": "Dawn Horse"
+      "entity_scale": 1.5,
+      "offset_x": -14,
+      "offset_y": -14,
+      "linked_page": "eryon.json",
+      "hover_text": "Eryon"
     },
     {
       "entity": "oddorganisms:doedicurus_render",
@@ -218,6 +218,18 @@
       "offset_y": -10,
       "linked_page": "apthoroblattina.json",
       "hover_text": "Apthoroblattina"
+    },
+    {
+      "entity": "oddorganisms:dawn_horse_render",
+      "x": 320,
+      "y": 160,
+      "page" : 0,
+      "scale": 1.2,
+      "entity_scale": 2.2,
+      "offset_x": -25,
+      "offset_y": -25,
+      "linked_page": "dawn_horse.json",
+      "hover_text": "Dawn Horse"
     }
   ],
   "linked_page_buttons": [

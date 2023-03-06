@@ -6,7 +6,10 @@ import coda.oddorganisms.common.entities.Doedicurus;
 import coda.oddorganisms.common.entities.Eolactoria;
 import coda.oddorganisms.data.EmbryoData;
 import coda.oddorganisms.data.EmbryoProvider;
-import coda.oddorganisms.registry.*;
+import coda.oddorganisms.registry.OOBlocks;
+import coda.oddorganisms.registry.OOEntities;
+import coda.oddorganisms.registry.OOItems;
+import coda.oddorganisms.registry.OOSounds;
 import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -23,11 +26,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
@@ -112,7 +112,7 @@ public class OddOrganisms {
     private void entityInteract(PlayerInteractEvent.EntityInteract e) {
         Player player = e.getEntity();
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
-        int timer = 6000;
+        int timer = 6000; // 5 minutes
 
         // Dawn Horse
         if (e.getTarget() instanceof Horse horse) {
@@ -215,7 +215,6 @@ public class OddOrganisms {
             });
         }
     }
-
 
     private void attachCapabilitiesAnimal(AttachCapabilitiesEvent<Entity> e) {
         if (e.getObject() instanceof AbstractHorse horse && !horse.isBaby()) {

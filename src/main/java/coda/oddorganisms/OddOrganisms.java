@@ -26,9 +26,14 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.storage.loot.BuiltInLootTables;
+import net.minecraft.world.level.storage.loot.LootPool;
+import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
+import net.minecraft.world.level.storage.loot.entries.LootTableReference;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
@@ -214,6 +219,23 @@ public class OddOrganisms {
                 }
             });
         }
+    }
+
+    private void modifyLoot(LootTableLoadEvent e) {
+        ResourceLocation name = e.getName();
+        LootPool pool = e.getTable().getPool("main");
+
+        if (name.equals(BuiltInLootTables.FISHERMAN_GIFT)) {
+            addEntry(pool, LootTableReference.lootTableReference(new ResourceLocation(MOD_ID, "inject/paleo_fossil")).setWeight(15).setQuality(1).build());
+        }
+    }
+
+    private static void addEntry(LootPool pool, LootPoolEntryContainer entry) {
+        LootPoolEntryContainer[] newEntries = new LootPoolEntryContainer[pool.entries.length + 1];
+        System.arraycopy(pool.entries, 0, newEntries, 0, pool.entries.length);
+        newEntries[pool.entries.length] = entry;
+
+        pool.entries = newEntries;
     }
 
     private void attachCapabilitiesAnimal(AttachCapabilitiesEvent<Entity> e) {

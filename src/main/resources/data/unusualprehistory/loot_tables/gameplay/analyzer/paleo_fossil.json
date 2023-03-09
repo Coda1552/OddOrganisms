@@ -46,7 +46,7 @@
         },
         {
           "type": "minecraft:item",
-          "weight": 300,
+          "weight": 3,
           "name": "oddorganisms:apthoroblattina_flask"
         }
       ]

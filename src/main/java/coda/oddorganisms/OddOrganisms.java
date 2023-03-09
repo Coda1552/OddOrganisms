@@ -63,6 +63,7 @@ public class OddOrganisms {
         forgeBus.addListener(this::addEntityGoals);
         forgeBus.addListener(this::livingDamage);
         forgeBus.addListener(this::playerAttack);
+        forgeBus.addListener(this::modifyLoot);
 
         bus.addListener(this::registerAttributes);
         bus.addListener(this::registerCapabilities);

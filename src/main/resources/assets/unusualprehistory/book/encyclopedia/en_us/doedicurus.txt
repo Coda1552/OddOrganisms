@@ -4,7 +4,7 @@
 <NEWLINE>
 This massive armadillo-like creature weighed up to 3,000 pounds and grew to be 13 feet long! They feed primarily on sweet berries, and don't take kindly to those who provoke them.
 <NEWLINE>
-If you do decide to provoke one of these creatures, they will respond with a tail strike which may knock a few osteoderms off.
+If you do decide to provoke one of these creatures, they will respond with a tail strike which may knock a few osteoderms off should they hit a shield.
 <NEWLINE>
 <NEWLINE>
 <NEWLINE>

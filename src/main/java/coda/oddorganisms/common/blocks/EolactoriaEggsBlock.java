@@ -1,7 +1,5 @@
 package coda.oddorganisms.common.blocks;
 
-import java.util.Random;
-
 import coda.oddorganisms.common.entities.Eolactoria;
 import coda.oddorganisms.registry.OOEntities;
 import net.minecraft.core.BlockPos;
@@ -53,7 +51,8 @@ public class EolactoriaEggsBlock extends Block {
         return !this.canSurvive(state, access, pos) ? Blocks.AIR.defaultBlockState() : super.updateShape(state, direction, neighborState, access, pos, neighborPos);
     }
 
-    public void tick(BlockState state, ServerLevel level, BlockPos pos, Random random) {
+    @Override
+    public void tick(BlockState state, ServerLevel level, BlockPos pos, RandomSource random) {
         if (!this.canSurvive(state, level, pos)) {
             this.hatch(level, pos);
         } else {
@@ -75,7 +74,7 @@ public class EolactoriaEggsBlock extends Block {
         return fluidState.getType() == Fluids.WATER && topFluidState.getType() == Fluids.EMPTY;
     }
 
-    private void onHatch(ServerLevel level, BlockPos pos, Random random) {
+    private void onHatch(ServerLevel level, BlockPos pos, RandomSource random) {
         this.hatch(level, pos);
         level.playSound(null, pos, SoundEvents.TURTLE_EGG_HATCH, SoundSource.BLOCKS, 1.0F, 1.0F);
         this.createTadpole(level, pos, random);
@@ -85,7 +84,7 @@ public class EolactoriaEggsBlock extends Block {
         level.destroyBlock(blockPos, false);
     }
 
-    private void createTadpole(ServerLevel level, BlockPos pos, Random random) {
+    private void createTadpole(ServerLevel level, BlockPos pos, RandomSource random) {
         int i = random.nextInt(1, 2);
 
         for(int index = 1; index <= i; ++index) {
@@ -102,7 +101,7 @@ public class EolactoriaEggsBlock extends Block {
 
     }
 
-    private double getSpawnOffset(Random random) {
-        return Mth.clamp(random.nextDouble(), 0.20000000298023224, 0.800000011920929);
+    private double getSpawnOffset(RandomSource random) {
+        return Mth.clamp(random.nextDouble(), 0.2D, 0.8D);
     }
 }

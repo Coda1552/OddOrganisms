@@ -1,15 +1,9 @@
 package coda.oddorganisms;
 
-import coda.oddorganisms.common.entities.Apthoroblattina;
-import coda.oddorganisms.common.entities.DawnHorse;
-import coda.oddorganisms.common.entities.Doedicurus;
-import coda.oddorganisms.common.entities.Eolactoria;
+import coda.oddorganisms.common.entities.*;
 import coda.oddorganisms.data.EmbryoData;
 import coda.oddorganisms.data.EmbryoProvider;
-import coda.oddorganisms.registry.OOBlocks;
-import coda.oddorganisms.registry.OOEntities;
-import coda.oddorganisms.registry.OOItems;
-import coda.oddorganisms.registry.OOSounds;
+import coda.oddorganisms.registry.*;
 import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -20,14 +14,11 @@ import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.animal.Wolf;
 import net.minecraft.world.entity.animal.horse.AbstractHorse;
-import net.minecraft.world.entity.animal.horse.Horse;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.storage.loot.LootPool;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
@@ -92,6 +83,7 @@ public class OddOrganisms {
 
     private void playerAttack(AttackEntityEvent e) {
         Player player = e.getEntity();
+
         if (player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) {
             player.playSound(SoundEvents.SHIELD_BLOCK, 1.0F, 1.0F);
             e.setCanceled(true);
@@ -110,6 +102,9 @@ public class OddOrganisms {
 
         e.put(OOEntities.APTHOROBLATTINA.get(), Apthoroblattina.createAttributes().build());
         e.put(OOEntities.APTHOROBLATTINA_RENDER.get(), BaseEntityRender.createAttributes().build());
+
+        e.put(OOEntities.LEPTICTIDIUM.get(), Leptictidium.createAttributes().build());
+        e.put(OOEntities.LEPTICTIDIUM_RENDER.get(), BaseEntityRender.createAttributes().build());
     }
 
     private void entityInteract(PlayerInteractEvent.EntityInteract e) {
@@ -117,43 +112,28 @@ public class OddOrganisms {
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
         int timer = 6000; // 5 minutes
 
-        // Dawn Horse
-        if (e.getTarget() instanceof Horse horse) {
-            CompoundTag tag = horse.getPersistentData();
+        if (e.getTarget().getType().is(OOTags.EMBRYO_COMPATIBLE)) {
+            AgeableMob target = (AgeableMob)e.getTarget();
+            CompoundTag tag = target.getPersistentData();
 
-            if (!horse.isBaby() && stack.is(OOItems.DAWN_HORSE_EMBRYO.get()) & !horse.getPersistentData().getBoolean("HasEmbryo")) {
+            if (!target.isBaby() && stack.is(OOTags.EMBRYO) & !target.getPersistentData().getBoolean("HasEmbryo")) {
+
+                System.out.println(stack.getItem().getName(stack).getString().replace(" Embryo", ""));
+                String name = stack.getItem().getName(stack).getString().replace(" Embryo", "");
 
                 tag.putBoolean("HasEmbryo", true);
-                tag.putString("EmbryoType", "dawn_horse");
+                tag.putString("EmbryoType", name);
 
                 if (!player.isCreative()) {
                     stack.shrink(1);
                 }
 
-                horse.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
-                    embryoProvider.setTimer(timer); // 5 minute timer
+                target.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
+                    embryoProvider.setTimer(timer);
                 });
             }
         }
 
-        // Doedicurus
-        if (e.getTarget() instanceof Cow cow) {
-            CompoundTag tag = cow.getPersistentData();
-
-            if (!cow.isBaby() && stack.is(OOItems.DOEDICURUS_EMBRYO.get()) & !cow.getPersistentData().getBoolean("HasEmbryo")) {
-
-                tag.putBoolean("HasEmbryo", true);
-                tag.putString("EmbryoType", "doedicurus");
-
-                if (!player.isCreative()) {
-                    stack.shrink(1);
-                }
-
-                cow.getCapability(EmbryoProvider.EMBRYO).ifPresent(embryoProvider -> {
-                    embryoProvider.setTimer(timer); // 5 minute timer
-                });
-            }
-        }
     }
 
     private void addEntityGoals(EntityJoinLevelEvent e) {
@@ -191,7 +171,7 @@ public class OddOrganisms {
                     String name = tag.getString("EmbryoType");
 
                     switch (name) {
-                        case "dawn_horse" :
+                        case "Dawn Horse" :
                             DawnHorse dawnHorse = OOEntities.DAWN_HORSE.get().create(level);
 
                             dawnHorse.moveTo(entity.position());
@@ -200,7 +180,7 @@ public class OddOrganisms {
                             embryoData.setTimer(300 * 20);
                             level.addFreshEntity(dawnHorse);
                             break;
-                        case "doedicurus" :
+                        case "Doedicurus" :
                             Doedicurus doedicurus = OOEntities.DOEDICURUS.get().create(level);
 
                             doedicurus.moveTo(entity.position());
@@ -219,21 +199,8 @@ public class OddOrganisms {
         }
     }
 
-    private static void addEntry(LootPool pool, LootPoolEntryContainer entry) {
-        LootPoolEntryContainer[] newEntries = new LootPoolEntryContainer[pool.entries.length + 1];
-        System.arraycopy(pool.entries, 0, newEntries, 0, pool.entries.length);
-        newEntries[pool.entries.length] = entry;
-
-        pool.entries = newEntries;
-    }
-
     private void attachCapabilitiesAnimal(AttachCapabilitiesEvent<Entity> e) {
-        if (e.getObject() instanceof AbstractHorse horse && !horse.isBaby()) {
-            if (!e.getObject().getCapability(EmbryoProvider.EMBRYO).isPresent()) {
-                e.addCapability(new ResourceLocation(OddOrganisms.MOD_ID, "embryo"), new EmbryoProvider());
-            }
-        }
-        if (e.getObject() instanceof Cow cow && !cow.isBaby()) {
+        if (e.getObject().getType().is(OOTags.EMBRYO_COMPATIBLE) && !((AgeableMob) e.getObject()).isBaby()) {
             if (!e.getObject().getCapability(EmbryoProvider.EMBRYO).isPresent()) {
                 e.addCapability(new ResourceLocation(OddOrganisms.MOD_ID, "embryo"), new EmbryoProvider());
             }

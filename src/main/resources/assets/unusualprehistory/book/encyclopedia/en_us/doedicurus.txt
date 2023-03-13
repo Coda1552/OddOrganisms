@@ -8,4 +8,6 @@ If you do decide to provoke one of these creatures, they will respond with a tai
 <NEWLINE>
 <NEWLINE>
 <NEWLINE>
-Crafting some osteoderms together produces a unique chestplate that seems to protect the wearer from damage while they are crouching. Of course, it cannot protect against all types     of damage...
+Crafting some osteoderms together produces a unique chestplate that seems to protect the wearer from damage while they are crouching. Of course, it cannot protect against all of damage...
+<NEWLINE>
+In order to obtain this mammalian creature, you must insert it's embryo into an evolutionarily similar creature. After waiting some time, a baby will be created!

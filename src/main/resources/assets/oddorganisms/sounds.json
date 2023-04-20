@@ -25,5 +25,41 @@
         "stream": true
       }
     ]
+  },
+  "leptictidium.ambient": {
+    "subtitle": "oddorganisms.leptictidium.ambient",
+    "sounds": [
+      {
+        "name": "oddorganisms:leptictidium/ambient",
+        "stream": true
+      }
+    ]
+  },
+  "leptictidium.death": {
+    "subtitle": "oddorganisms.leptictidium.death",
+    "sounds": [
+      {
+        "name": "oddorganisms:leptictidium/death",
+        "stream": true
+      }
+    ]
+  },
+  "leptictidium.hurt": {
+    "subtitle": "oddorganisms.leptictidium.hurt",
+    "sounds": [
+      {
+        "name": "oddorganisms:leptictidium/hurt",
+        "stream": true
+      }
+    ]
+  },
+  "leptictidium.scared": {
+    "subtitle": "oddorganisms.leptictidium.scared",
+    "sounds": [
+      {
+        "name": "oddorganisms:leptictidium/scared",
+        "stream": true
+      }
+    ]
   }
 }

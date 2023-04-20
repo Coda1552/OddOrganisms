@@ -78,11 +78,6 @@ public class Doedicurus extends Animal implements IAnimatable {
     }
 
     @Override
-    public float getVoicePitch() {
-        return 1.0F;
-    }
-
-    @Override
     public ItemStack getPickedResult(HitResult target) {
         return new ItemStack(OOItems.DOEDICURUS_SPAWN_EGG.get());
     }

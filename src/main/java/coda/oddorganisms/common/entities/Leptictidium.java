@@ -2,10 +2,14 @@ package coda.oddorganisms.common.entities;
 
 import coda.oddorganisms.registry.OOEntities;
 import coda.oddorganisms.registry.OOItems;
+import coda.oddorganisms.registry.OOSounds;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -35,7 +39,14 @@ public class Leptictidium extends Animal implements IAnimatable {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new FloatGoal(this));
-        this.goalSelector.addGoal(0, new PanicGoal(this, 1.0F));
+        this.goalSelector.addGoal(0, new PanicGoal(this, 1.25F));
+        this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, LivingEntity.class, 6.0F, 1.15D, 1.4D, e -> !(e instanceof Leptictidium)) {
+            @Override
+            public void start() {
+                super.start();
+                playSound(OOSounds.LEPTICTIDIUM_SCARED.get());
+            }
+        });
         this.goalSelector.addGoal(1, new FollowParentGoal(this, 1.0F));
         this.goalSelector.addGoal(3, new TemptGoal(this, 1.2D, Ingredient.of(ItemTags.LEAVES), false));
         this.goalSelector.addGoal(4, new WaterAvoidingRandomStrollGoal(this, 1.0D));
@@ -52,6 +63,25 @@ public class Leptictidium extends Animal implements IAnimatable {
     public AgeableMob getBreedOffspring(ServerLevel p_146743_, AgeableMob p_146744_) {
         return OOEntities.LEPTICTIDIUM.get().create(level);
     }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return OOSounds.LEPTICTIDIUM_DEATH.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource p_21239_) {
+        return OOSounds.LEPTICTIDIUM_HURT.get();
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return OOSounds.LEPTICTIDIUM_AMBIENT.get();
+    }
+
 
     @Override
     public void registerControllers(AnimationData data) {

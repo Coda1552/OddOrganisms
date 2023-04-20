@@ -3,6 +3,7 @@
   "entity.oddorganisms.doedicurus": "Doedicurus",
   "entity.oddorganisms.eolactoria": "Eolactoria",
   "entity.oddorganisms.apthoroblattina": "Apthoroblattina",
+  "entity.oddorganisms.leptictidium": "Leptictidium",
 
   "item.oddorganisms.dawn_horse_spawn_egg": "Dawn Horse Spawn Egg",
   "item.oddorganisms.dawn_horse_flask": "Dawn Horse DNA Flask",
@@ -20,6 +21,10 @@
   "item.oddorganisms.apthoroblattina_flask": "Apthoroblattina Flask",
   "item.oddorganisms.apthoroblattina_ootheca": "Apthoroblattina Ootheca",
 
+  "item.oddorganisms.leptictidium_spawn_egg": "Leptictidium Spawn Egg",
+  "item.oddorganisms.leptictidium_flask": "Leptictidium DNA Flask",
+  "item.oddorganisms.leptictidium_embryo": "Leptictidium Embryo",
+
   "item.oddorganisms.cenozoic_fossil": "Cenozoic Fossil",
   "item.oddorganisms.doedicurus_chestplate": "Doedicurus Chestplate",
   "item.oddorganisms.doedicurus_osteoderm": "Doedicurus Osteoderm",
@@ -31,6 +36,9 @@
 
   "oddorganisms.doedicurus.ambient": "Doedicurus grunts",
   "oddorganisms.doedicurus.hurt": "Doedicurus hurts",
-  "oddorganisms.doedicurus.death": "Doedicurus dies"
-
+  "oddorganisms.doedicurus.death": "Doedicurus dies",
+  "oddorganisms.leptictidium.ambient": "Leptictidium squeaks",
+  "oddorganisms.leptictidium.hurt": "Leptictidium hurts",
+  "oddorganisms.leptictidium.death": "Leptictidium dies",
+  "oddorganisms.leptictidium.scared": "Leptictidium whimpers"
 }

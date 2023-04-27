@@ -3,15 +3,15 @@ package coda.oddorganisms.client.models.render;
 import coda.oddorganisms.OddOrganisms;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
-import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.client.model.geom.ModelLayerLocation;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.client.model.geom.PartPose;
 import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.Entity;
 
-public class LeptictidiumRenderModel<T extends BaseEntityRender> extends EntityModel<T> {
+public class LeptictidiumRenderModel<T extends Entity> extends EntityModel<T> {
 	public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(OddOrganisms.MOD_ID, "leptictidium"), "main");
 	private final ModelPart root;
 

@@ -2,7 +2,7 @@ package coda.oddorganisms.registry;
 
 import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.entities.*;
-import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
+import com.peeko32213.unusualprehistory.common.entity.msc.render.BaseEntityRender;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraftforge.registries.DeferredRegister;

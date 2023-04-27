@@ -58,6 +58,6 @@ This is an addon to the Unusual Prehistory mod by Peeko32213 that adds more preh
 [[dependencies.oddorganisms]]
     modId="unusualprehistory"
     mandatory=true
-    versionRange="[1.2.0,1.3.0)"
+    versionRange="[1.3.0,1.4.0)"
     ordering="BEFORE"
     side="BOTH"

@@ -4,7 +4,7 @@ import coda.oddorganisms.common.entities.*;
 import coda.oddorganisms.data.EmbryoData;
 import coda.oddorganisms.data.EmbryoProvider;
 import coda.oddorganisms.registry.*;
-import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
+import com.peeko32213.unusualprehistory.common.entity.msc.render.BaseEntityRender;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;

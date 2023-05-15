@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class DoedicurusModel extends AnimatedGeoModel<Doedicurus> {
 
     @Override
-    public ResourceLocation getModelLocation(Doedicurus object) {
+    public ResourceLocation getModelResource(Doedicurus object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "geo/doedicurus.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(Doedicurus object) {
+    public ResourceLocation getTextureResource(Doedicurus object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/doedicurus.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(Doedicurus animatable) {
+    public ResourceLocation getAnimationResource(Doedicurus animatable) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "animations/doedicurus.animation.json");
     }
 }

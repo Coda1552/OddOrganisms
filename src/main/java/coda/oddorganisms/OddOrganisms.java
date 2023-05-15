@@ -7,7 +7,7 @@ import coda.oddorganisms.common.entities.Eolactoria;
 import coda.oddorganisms.data.EmbryoData;
 import coda.oddorganisms.data.EmbryoProvider;
 import coda.oddorganisms.registry.*;
-import com.peeko32213.unusualprehistory.common.entity.render.BaseEntityRender;
+import com.peeko32213.unusualprehistory.common.entity.msc.render.BaseEntityRender;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
@@ -23,21 +23,16 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.biome.Biome;
-import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.capabilities.RegisterCapabilitiesEvent;
-import net.minecraftforge.common.world.BiomeGenerationSettingsBuilder;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
-import net.minecraftforge.event.entity.EntityJoinWorldEvent;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.AttackEntityEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.world.BiomeLoadingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -53,12 +48,14 @@ public class OddOrganisms {
         OOItems.ITEMS.register(bus);
         OOBlocks.BLOCKS.register(bus);
         OOSounds.SOUNDS.register(bus);
+        OOConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
+        OOPlacedFeatures.PLACED_FEATURES.register(bus);
 
         forgeBus.addListener(this::entityInteract);
         forgeBus.addListener(this::entityTick);
         forgeBus.addGenericListener(Entity.class, this::attachCapabilitiesAnimal);
         forgeBus.addListener(this::addEntityGoals);
-        forgeBus.addListener(this::addOres);
+
         forgeBus.addListener(this::livingDamage);
         forgeBus.addListener(this::playerAttack);
 
@@ -91,20 +88,22 @@ public class OddOrganisms {
     }
 
     private void playerAttack(AttackEntityEvent e) {
-        if (e.getEntity() instanceof Player player && player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) {
+
+        Player player = e.getEntity();
+        if (player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) {
             player.playSound(SoundEvents.SHIELD_BLOCK, 1.0F, 1.0F);
             e.setCanceled(true);
         }
     }
 
-    private void addOres(BiomeLoadingEvent event) {
-        Biome.BiomeCategory category = event.getCategory();
-        BiomeGenerationSettingsBuilder builder = event.getGeneration();
+  // private void addOres(BiomeLoadingEvent event) {
+  //     Biome.BiomeCategory category = event.getCategory();
+  //     BiomeGenerationSettingsBuilder builder = event.getGeneration();
 
-        if (category == Biome.BiomeCategory.NETHER || category == Biome.BiomeCategory.THEEND || category == Biome.BiomeCategory.NONE) return;
+  //     if (category == Biome.BiomeCategory.NETHER || category == Biome.BiomeCategory.THEEND || category == Biome.BiomeCategory.NONE) return;
 
-        builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OOPlacedFeatures.TERRACOTTA_FOSSIL);
-    }
+  //     builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OOPlacedFeatures.TERRACOTTA_FOSSIL);
+  // }
 
     private void registerAttributes(EntityAttributeCreationEvent e) {
         e.put(OOEntities.DAWN_HORSE.get(), DawnHorse.createAttributes().build());
@@ -121,7 +120,7 @@ public class OddOrganisms {
     }
 
     private void entityInteract(PlayerInteractEvent.EntityInteract e) {
-        Player player = e.getPlayer();
+        Player player = e.getEntity();
         ItemStack stack = player.getItemInHand(player.getUsedItemHand());
         int timer = 90;
 
@@ -160,7 +159,7 @@ public class OddOrganisms {
         }
     }
 
-    private void addEntityGoals(EntityJoinWorldEvent e) {
+    private void addEntityGoals(EntityJoinLevelEvent e) {
         if (e.getEntity() instanceof Wolf wolf) {
             wolf.targetSelector.addGoal(0, new NearestAttackableTargetGoal<>(wolf, DawnHorse.class, true));
         }
@@ -172,8 +171,8 @@ public class OddOrganisms {
         }
     }
 
-    private void entityTick(LivingEvent.LivingUpdateEvent e) {
-        LivingEntity entity = e.getEntityLiving();
+    private void entityTick(LivingEvent.LivingTickEvent e) {
+        LivingEntity entity = e.getEntity();
         var cap = entity.getCapability(EmbryoProvider.EMBRYO);
 
         CompoundTag tag = entity.getPersistentData();

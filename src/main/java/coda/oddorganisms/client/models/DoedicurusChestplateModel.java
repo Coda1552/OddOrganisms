@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class DoedicurusChestplateModel extends AnimatedGeoModel<DoedicurusChestplateItem> {
 
     @Override
-    public ResourceLocation getModelLocation(DoedicurusChestplateItem object) {
+    public ResourceLocation getModelResource(DoedicurusChestplateItem object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "geo/doedicurus_chestplate.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(DoedicurusChestplateItem object) {
+    public ResourceLocation getTextureResource(DoedicurusChestplateItem object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "textures/armor/doedicurus_chestplate.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(DoedicurusChestplateItem object) {
+    public ResourceLocation getAnimationResource(DoedicurusChestplateItem object) {
         return null;
     }
 }

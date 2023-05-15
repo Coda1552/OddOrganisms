@@ -8,17 +8,17 @@ import software.bernie.geckolib3.model.AnimatedGeoModel;
 public class DawnHorseModel extends AnimatedGeoModel<DawnHorse> {
 
     @Override
-    public ResourceLocation getModelLocation(DawnHorse object) {
+    public ResourceLocation getModelResource(DawnHorse object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "geo/dawn_horse.geo.json");
     }
 
     @Override
-    public ResourceLocation getTextureLocation(DawnHorse object) {
+    public ResourceLocation getTextureResource(DawnHorse object) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/dawn_horse.png");
     }
 
     @Override
-    public ResourceLocation getAnimationFileLocation(DawnHorse animatable) {
+    public ResourceLocation getAnimationResource(DawnHorse animatable) {
         return new ResourceLocation(OddOrganisms.MOD_ID, "animations/dawn_horse.animation.json");
     }
 }

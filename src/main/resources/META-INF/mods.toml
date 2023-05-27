@@ -5,7 +5,7 @@ license="All rights reserved"
 modId="oddorganisms" #mandatory
 version="${file.jarVersion}" #mandatory
 displayName="Odd Organisms" #mandatory
-credits="Peeko for Unusual Prehistory, and Wadoo, Orca, Hirbbert, Alpha Gec for animations" #optional
+credits="Peeko for Unusual Prehistory, Scouter for some code, and Wadoo, Orca, Hirbbert, Alpha Gec for animations" #optional
 authors="Coda" #optional
 description='''
 This is an addon to the Unusual Prehistory mod by Peeko32213 that adds more prehistoric creatures!'''

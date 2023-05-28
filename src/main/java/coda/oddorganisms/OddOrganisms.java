@@ -56,6 +56,8 @@ public class OddOrganisms {
         OOItems.ITEMS.register(bus);
         OOBlocks.BLOCKS.register(bus);
         OOSounds.SOUNDS.register(bus);
+        OOConfiguredFeatures.CONFIGURED_FEATURES.register(bus);
+        OOPlacedFeatures.PLACED_FEATURES.register(bus);
 
         forgeBus.addListener(this::entityInteract);
         forgeBus.addListener(this::entityTick);
@@ -111,12 +113,20 @@ public class OddOrganisms {
 
     private void playerAttack(AttackEntityEvent e) {
         Player player = e.getEntity();
-
         if (player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) {
             player.playSound(SoundEvents.SHIELD_BLOCK, 1.0F, 1.0F);
             e.setCanceled(true);
         }
     }
+
+  // private void addOres(BiomeLoadingEvent event) {
+  //     Biome.BiomeCategory category = event.getCategory();
+  //     BiomeGenerationSettingsBuilder builder = event.getGeneration();
+
+  //     if (category == Biome.BiomeCategory.NETHER || category == Biome.BiomeCategory.THEEND || category == Biome.BiomeCategory.NONE) return;
+
+  //     builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OOPlacedFeatures.TERRACOTTA_FOSSIL);
+  // }
 
     private void registerAttributes(EntityAttributeCreationEvent e) {
         e.put(OOEntities.DAWN_HORSE.get(), DawnHorse.createAttributes().build());
@@ -146,7 +156,6 @@ public class OddOrganisms {
 
             if (!target.isBaby() && stack.is(OOTags.EMBRYO) & !target.getPersistentData().getBoolean("HasEmbryo")) {
 
-                System.out.println(stack.getItem().getName(stack).getString().replace(" Embryo", ""));
                 String name = stack.getItem().getName(stack).getString().replace(" Embryo", "");
 
                 tag.putBoolean("HasEmbryo", true);

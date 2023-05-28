@@ -1,16 +1,16 @@
 {
   "type": "minecraft:ore",
   "config": {
-    "size": 5,
     "discard_chance_on_air_exposure": 0.25,
+    "size": 5,
     "targets": [
       {
+        "state": {
+          "Name": "oddorganisms:terracotta_fossil"
+        },
         "target": {
           "predicate_type": "minecraft:tag_match",
           "tag": "minecraft:terracotta"
-        },
-        "state": {
-          "Name": "oddorganisms:terracotta_fossil"
         }
       }
     ]

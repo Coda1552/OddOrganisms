@@ -38,7 +38,7 @@ public class OOItems {
     public static final RegistryObject<Item> DOEDICURUS_SPAWN_EGG = ITEMS.register("doedicurus_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DOEDICURUS, 0x694628, 0x926f40, new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> EOLACTORIA_SPAWN_EGG = ITEMS.register("eolactoria_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.EOLACTORIA, 0x8e5c3c, 0xeda655, new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> APTHOROBLATTINA_SPAWN_EGG = ITEMS.register("apthoroblattina_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.APTHOROBLATTINA, 0x201e24, 0x453638, new Item.Properties().tab(GROUP)));
-    public static final RegistryObject<Item> LEPTICTIDIUM_SPAWN_EGG = ITEMS.register("leptictidium_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.LEPTICTIDIUM, 0xc09251, 0xe28554, new Item.Properties()));
+    public static final RegistryObject<Item> LEPTICTIDIUM_SPAWN_EGG = ITEMS.register("leptictidium_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.LEPTICTIDIUM, 0xc09251, 0xe28554, new Item.Properties().tab(GROUP)));
 
     public static final RegistryObject<Item> CENOZOIC_FOSSIL = ITEMS.register("cenozoic_fossil", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> TERRACOTTA_FOSSIL = ITEMS.register("terracotta_fossil", () -> new BlockItem(OOBlocks.TERRACOTTA_FOSSIL.get(), new Item.Properties().tab(GROUP)));

@@ -119,15 +119,6 @@ public class OddOrganisms {
         }
     }
 
-  // private void addOres(BiomeLoadingEvent event) {
-  //     Biome.BiomeCategory category = event.getCategory();
-  //     BiomeGenerationSettingsBuilder builder = event.getGeneration();
-
-  //     if (category == Biome.BiomeCategory.NETHER || category == Biome.BiomeCategory.THEEND || category == Biome.BiomeCategory.NONE) return;
-
-  //     builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, OOPlacedFeatures.TERRACOTTA_FOSSIL);
-  // }
-
     private void registerAttributes(EntityAttributeCreationEvent e) {
         e.put(OOEntities.DAWN_HORSE.get(), DawnHorse.createAttributes().build());
         e.put(OOEntities.DAWN_HORSE_RENDER.get(), BaseEntityRender.createAttributes().build());

@@ -28,6 +28,7 @@ public class OOItems {
     public static final RegistryObject<Item> DOEDICURUS_FLASK = ITEMS.register("doedicurus_flask", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> EOLACTORIA_FLASK = ITEMS.register("eolactoria_flask", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> APTHOROBLATTINA_FLASK = ITEMS.register("apthoroblattina_flask", () -> new Item(new Item.Properties().tab(GROUP)));
+    public static final RegistryObject<Item> LEPTICTIDIUM_FLASK = ITEMS.register("leptictidium_flask", () -> new Item(new Item.Properties().tab(GROUP)));
 
     public static final RegistryObject<Item> DAWN_HORSE_EMBRYO = ITEMS.register("dawn_horse_embryo", () -> new Item(new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> DOEDICURUS_EMBRYO = ITEMS.register("doedicurus_embryo", () -> new Item(new Item.Properties().tab(GROUP)));

@@ -1,5 +1,6 @@
 package coda.oddorganisms.common.entities;
 
+import coda.oddorganisms.common.entities.util.OOAnimations;
 import coda.oddorganisms.registry.OOItems;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -15,7 +16,6 @@ import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
 import software.bernie.geckolib3.core.controller.AnimationController;
 import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
@@ -67,10 +67,10 @@ public class Eolactoria extends AbstractFish implements IAnimatable {
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         if (event.isMoving()) {
-            event.getController().setAnimation(new AnimationBuilder().loop("swim"));
+            event.getController().setAnimation(OOAnimations.SWIM);
         }
         else {
-            event.getController().setAnimation(new AnimationBuilder().loop("idle"));
+            event.getController().setAnimation(OOAnimations.IDLE);
         }
         return PlayState.CONTINUE;
     }

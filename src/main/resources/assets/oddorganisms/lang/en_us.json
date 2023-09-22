@@ -4,6 +4,7 @@
   "entity.oddorganisms.eolactoria": "Eolactoria",
   "entity.oddorganisms.apthoroblattina": "Apthoroblattina",
   "entity.oddorganisms.leptictidium": "Leptictidium",
+  "entity.oddorganisms.borealopelta": "Leptictidium",
 
   "item.oddorganisms.dawn_horse_spawn_egg": "Dawn Horse Spawn Egg",
   "item.oddorganisms.dawn_horse_flask": "Dawn Horse DNA Flask",
@@ -25,11 +26,12 @@
   "item.oddorganisms.leptictidium_flask": "Leptictidium DNA Flask",
   "item.oddorganisms.leptictidium_embryo": "Leptictidium Embryo",
 
-  "item.oddorganisms.cenozoic_fossil": "Cenozoic Fossil",
-  "item.oddorganisms.doedicurus_chestplate": "Doedicurus Chestplate",
-  "item.oddorganisms.doedicurus_osteoderm": "Doedicurus Osteoderm",
+  "item.oddorganisms.borealopelta_spawn_egg": "Borealopelta Spawn Egg",
+  "item.oddorganisms.borealopelta_flask": "Borealopelta DNA Flask",
 
-  "block.oddorganisms.terracotta_fossil": "Terracotta Fossil",
+  "item.oddorganisms.doedicurus_chestplate": "Doedicurus Chestplate",
+  "item.oddorganisms.doedicurus_scute": "Doedicurus Scute",
+
   "block.oddorganisms.eolactoria_eggs": "Eolactoria Eggs",
 
   "itemGroup.oddorganisms": "Odd Organisms",

@@ -1,0 +1,33 @@
+{
+  "text": "eolactoria.txt",
+  "title": "    Eolactoria",
+  "page_to_go": "unusualprehistory:dinosaurs",
+  "recipes": [
+  ],
+  "entity_renders": [
+    {
+      "entity": "oddorganisms:eolactoria",
+      "x": 90,
+      "y": 95,
+      "page": 0,
+      "scale": 2.5,
+      "rot_x": 30,
+      "rot_y": 225,
+      "rot_z": 0,
+      "follow_cursor": false
+    }
+  ],
+  "entity_button":[
+    {
+      "entity": "oddorganisms:eolactoria",
+      "x": 290,
+      "y": 40,
+      "page": 0,
+      "scale": 1.2,
+      "entity_scale": 2.5,
+      "offset_x": -3,
+      "offset_y": -8,
+      "hover_text": "Eolactoria"
+    }
+  ]
+}

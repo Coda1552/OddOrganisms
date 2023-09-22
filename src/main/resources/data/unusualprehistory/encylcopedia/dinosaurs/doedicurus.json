@@ -1,0 +1,41 @@
+{
+  "text": "doedicurus.txt",
+  "title": "    Doedicurus",
+  "page_to_go": "unusualprehistory:doedicurus",
+  "recipes": [
+    {
+      "recipe": "oddorganisms:doedicurus_chestplate",
+      "shapeless": false,
+      "x": 15,
+      "y": 65,
+      "page": 1,
+      "scale": 1.3
+    }
+  ],
+  "entity_renders": [
+    {
+      "entity": "oddorganisms:doedicurus_render",
+      "x": 90,
+      "y": 100,
+      "page" : 0,
+      "scale": 1,
+      "rot_x": 30,
+      "rot_y": 225,
+      "rot_z": 0,
+      "follow_cursor": false
+    }
+  ],
+  "entity_button":[
+    {
+      "entity": "oddorganisms:doedicurus",
+      "x": 290,
+      "y": 40,
+      "page": 0,
+      "scale": 1.2,
+      "entity_scale": 1.0,
+      "offset_x": -3,
+      "offset_y": -8,
+      "hover_text": "Doedicurus"
+    }
+  ]
+}

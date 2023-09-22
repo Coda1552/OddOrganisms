@@ -1,9 +1,0 @@
-{
-  "type": "unusualprehistory:analyzing",
-  "ingredients": [
-    {
-      "item": "oddorganisms:cenozoic_fossil"
-    }
-  ],
-  "output": "oddorganisms:gameplay/analyzer/ceno_fossil"
-}

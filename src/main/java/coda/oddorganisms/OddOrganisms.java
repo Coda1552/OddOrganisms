@@ -40,7 +40,6 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class OddOrganisms {
     public static final String MOD_ID = "oddorganisms";
 
-    // todo - fix paleo fossils not giving roach flask when analyzed
     // todo - add incubator recipes, redo embryo items
     public OddOrganisms() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();

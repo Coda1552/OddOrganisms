@@ -90,7 +90,10 @@ public class Leptictidium extends Animal implements IAnimatable {
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (event.isMoving()) {
+        if (!isAddedToWorld()) {
+            return PlayState.STOP;
+        }
+        else if (event.isMoving()) {
             event.getController().setAnimation(OOAnimations.WALK);
         }
         else {

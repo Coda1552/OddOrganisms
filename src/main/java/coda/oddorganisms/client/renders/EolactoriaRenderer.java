@@ -26,11 +26,7 @@ public class EolactoriaRenderer extends GeoEntityRenderer<Eolactoria> {
 
     @Override
     public void render(GeoModel model, Eolactoria animatable, float partialTicks, RenderType type, PoseStack matrixStackIn, @Nullable MultiBufferSource renderTypeBuffer, @Nullable VertexConsumer vertexBuilder, int packedLightIn, int packedOverlayIn, float red, float green, float blue, float alpha) {
-        if (animatable.isBaby()) {
-            matrixStackIn.scale(0.5F, 0.5F, 0.5F);
-        }
-
-        if (!animatable.isInWater()) {
+        if (!animatable.isInWater() && animatable.isAddedToWorld()) {
             matrixStackIn.translate(0.1F, 0.1F, -0.1F);
             matrixStackIn.mulPose(Vector3f.ZP.rotationDegrees(90.0F));
         }

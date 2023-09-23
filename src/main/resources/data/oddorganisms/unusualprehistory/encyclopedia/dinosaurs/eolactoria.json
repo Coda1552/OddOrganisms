@@ -24,9 +24,9 @@
       "y": 40,
       "page": 0,
       "scale": 1.2,
-      "entity_scale": 2.5,
-      "offset_x": -3,
-      "offset_y": -8,
+      "entity_scale": 1.8,
+      "offset_x": -18,
+      "offset_y": -18,
       "hover_text": "Eolactoria"
     }
   ]

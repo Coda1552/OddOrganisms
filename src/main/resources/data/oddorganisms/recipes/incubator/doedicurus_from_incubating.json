@@ -1,0 +1,9 @@
+{
+  "type": "unusualprehistory:incubating",
+  "ingredients": [
+    {
+      "item": "oddorganisms:doedicurus_embryo"
+    }
+  ],
+  "output": "oddorganisms:doedicurus"
+}

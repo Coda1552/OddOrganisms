@@ -1,0 +1,9 @@
+{
+  "type": "unusualprehistory:incubating",
+  "ingredients": [
+    {
+      "item": "oddorganisms:dawn_horse_embryo"
+    }
+  ],
+  "output": "oddorganisms:dawn_horse"
+}

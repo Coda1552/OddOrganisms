@@ -3,6 +3,7 @@ package coda.oddorganisms.registry;
 import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.items.DoedicurusChestplateItem;
 import coda.oddorganisms.common.items.OothecaItem;
+import com.peeko32213.unusualprehistory.common.item.AnimalAttacherItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.material.Fluids;
@@ -31,8 +32,9 @@ public class OOItems {
     public static final RegistryObject<Item> LEPTICTIDIUM_FLASK = ITEMS.register("leptictidium_flask", () -> new Item(new Item.Properties().tab(GROUP)));
     //public static final RegistryObject<Item> BOREALOPELTA_FLASK = ITEMS.register("borealopelta_flask", () -> new Item(new Item.Properties().tab(GROUP)));
 
-    public static final RegistryObject<Item> DAWN_HORSE_EMBRYO = ITEMS.register("dawn_horse_embryo", () -> new Item(new Item.Properties().tab(GROUP)));
-    public static final RegistryObject<Item> DOEDICURUS_EMBRYO = ITEMS.register("doedicurus_embryo", () -> new Item(new Item.Properties().tab(GROUP)));
+    public static final RegistryObject<Item> DAWN_HORSE_EMBRYO = ITEMS.register("dawn_horse_embryo", () -> new AnimalAttacherItem(new Item.Properties().tab(GROUP).stacksTo(16), OOTags.DAWN_HORSE_EMBRYO_ATTACH_TO, OOEntities.DAWN_HORSE, 1000));
+    public static final RegistryObject<Item> DOEDICURUS_EMBRYO = ITEMS.register("doedicurus_embryo", () -> new AnimalAttacherItem(new Item.Properties().tab(GROUP).stacksTo(16), OOTags.DOEDICURUS_EMBRYO_ATTACH_TO, OOEntities.DOEDICURUS, 1000));
+    public static final RegistryObject<Item> LEPTICTIDIUM_EMBRYO = ITEMS.register("leptictidium_embryo", () -> new AnimalAttacherItem(new Item.Properties().tab(GROUP).stacksTo(16), OOTags.LEPTICTIDIUM_EMBRYO_ATTACH_TO, OOEntities.LEPTICTIDIUM, 1000));
     public static final RegistryObject<Item> EOLACTORIA_EGGS = ITEMS.register("eolactoria_eggs", () -> new PlaceOnWaterBlockItem(OOBlocks.EOLACTORIA_EGGS.get(), new Item.Properties().tab(GROUP)));
     public static final RegistryObject<Item> APTHOROBLATTINA_OOTHECA = ITEMS.register("apthoroblattina_ootheca", () -> new OothecaItem(new Item.Properties().tab(GROUP)));
 

@@ -1,6 +1,8 @@
 package coda.oddorganisms.common.entities;
 
+import coda.oddorganisms.common.entities.util.OOAnimations;
 import coda.oddorganisms.registry.OOEntities;
+import coda.oddorganisms.registry.OOItems;
 import coda.oddorganisms.registry.OOSounds;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -15,8 +17,10 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.animal.Animal;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.Nullable;
 import software.bernie.geckolib3.core.IAnimatable;
 import software.bernie.geckolib3.core.PlayState;
@@ -86,12 +90,12 @@ public class Borealopelta extends Animal implements IAnimatable {
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-/*        if (event.isMoving()) {
+        if (event.isMoving()) {
             event.getController().setAnimation(OOAnimations.WALK);
         }
         else {
             event.getController().setAnimation(OOAnimations.IDLE);
-        }*/
+        }
         return PlayState.CONTINUE;
     }
 
@@ -100,8 +104,8 @@ public class Borealopelta extends Animal implements IAnimatable {
         return factory;
     }
 
-/*    @Override
+    @Override
     public ItemStack getPickedResult(HitResult target) {
         return new ItemStack(OOItems.BOREALOPELTA_SPAWN_EGG.get());
-    }*/
+    }
 }

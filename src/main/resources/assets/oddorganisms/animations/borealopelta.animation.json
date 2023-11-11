@@ -1,0 +1,84 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"walk": {
+			"loop": true,
+			"animation_length": 1.48,
+			"bones": {
+				"bone": {
+					"rotation": [0, 0, "Math.cos((query.anim_time)*240)*2"],
+					"position": [0, "Math.cos((query.anim_time)*480)*-1", 0]
+				},
+				"neck": {
+					"rotation": ["Math.cos(((query.anim_time +0.2))*480)*-2 +10", "0+Math.cos(((query.anim_time +0.2))*240)*2", 0]
+				},
+				"head": {
+					"rotation": [-2.5, 0, 0]
+				},
+				"tail": {
+					"rotation": ["Math.cos(((query.anim_time -0.2))*480)*-4 -12.5", "Math.cos(((query.anim_time -0.2))*240)*10", 0]
+				},
+				"tail2": {
+					"rotation": ["Math.cos(((query.anim_time -0.3))*480)*-4 +10", "0+Math.cos(((query.anim_time -0.4))*240)*10", 0]
+				},
+				"FLleg": {
+					"rotation": ["Math.cos((query.anim_time)*240)*-20", -1, 0],
+					"position": {
+						"0.0": [0, 0, -1],
+						"0.8": [0, 0, 0],
+						"1.12": [0, 3, -0.67],
+						"1.48": [0, 0, -1]
+					}
+				},
+				"BLleg": {
+					"rotation": ["Math.cos((query.anim_time)*240)*20", -1, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.32": [0, 3, -0.67],
+						"0.68": [0, 0, -1],
+						"1.48": [0, 0, 0]
+					}
+				},
+				"FRleg2": {
+					"rotation": ["Math.cos((query.anim_time)*240)*20", -1, 0],
+					"position": {
+						"0.0": [0, 0, 0],
+						"0.32": [0, 3, -0.67],
+						"0.68": [0, 0, -1],
+						"1.48": [0, 0, 0]
+					}
+				},
+				"BRleg2": {
+					"rotation": ["Math.cos((query.anim_time)*240)*-20", -1, 0],
+					"position": {
+						"0.0": [0, 0, -1],
+						"0.8": [0, 0, 0],
+						"1.12": [0, 3, -0.67],
+						"1.48": [0, 0, -1]
+					}
+				}
+			}
+		},
+		"idle": {
+			"loop": true,
+			"animation_length": 5.92,
+			"bones": {
+				"bone": {
+					"position": [0, "Math.cos((query.anim_time)*120)*0.2", 0]
+				},
+				"neck": {
+					"rotation": ["Math.cos((query.anim_time -2)*120)*2+10", 0, 0]
+				},
+				"head": {
+					"rotation": ["Math.cos((query.anim_time -3)*120)*2", 0, 0]
+				},
+				"tail": {
+					"rotation": ["Math.cos((query.anim_time -2)*120)*-2-12.5", "Math.cos((query.anim_time -2)*60)*-4", 0]
+				},
+				"tail2": {
+					"rotation": ["Math.cos((query.anim_time -3)*120)*-4+12.5", "Math.cos((query.anim_time -3)*60)*-4", 0]
+				}
+			}
+		}
+	}
+}

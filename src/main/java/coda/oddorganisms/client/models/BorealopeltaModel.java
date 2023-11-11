@@ -19,6 +19,6 @@ public class BorealopeltaModel extends AnimatedGeoModel<Borealopelta> {
 
     @Override
     public ResourceLocation getAnimationResource(Borealopelta animatable) {
-        return null;//new ResourceLocation(OddOrganisms.MOD_ID, "animations/borealopelta.animation.json");
+        return new ResourceLocation(OddOrganisms.MOD_ID, "animations/borealopelta.animation.json");
     }
 }

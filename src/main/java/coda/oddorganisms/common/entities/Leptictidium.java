@@ -10,10 +10,7 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.damagesource.DamageSource;
-import net.minecraft.world.entity.AgeableMob;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -158,5 +155,24 @@ public class Leptictidium extends EntityBaseDinosaurAnimal implements IAnimatabl
     @Override
     public ItemStack getPickedResult(HitResult target) {
         return new ItemStack(OOItems.LEPTICTIDIUM_SPAWN_EGG.get());
+    }
+
+    @Override
+    public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
+        int i = this.calculateFallDamage(pFallDistance, pMultiplier);
+        if (i <= 0) {
+            return false;
+        } else {
+            this.hurt(pSource, (float)i);
+            if (this.isVehicle()) {
+
+                for (Entity entity : this.getIndirectPassengers()) {
+                    entity.hurt(pSource, (float) i);
+                }
+            }
+
+            this.playBlockFallSound();
+            return true;
+        }
     }
 }

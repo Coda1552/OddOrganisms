@@ -17,6 +17,6 @@ public class OOEntities {
     public static final RegistryObject<EntityType<Eolactoria>> EOLACTORIA = ENTITIES.register("eolactoria", () -> EntityType.Builder.of(Eolactoria::new, MobCategory.WATER_CREATURE).sized(0.5F, 0.35F).build("eolactoria"));
     public static final RegistryObject<EntityType<Apthoroblattina>> APTHOROBLATTINA = ENTITIES.register("apthoroblattina", () -> EntityType.Builder.of(Apthoroblattina::new, MobCategory.CREATURE).sized(0.95F, 0.35F).build("apthoroblattina"));
     public static final RegistryObject<EntityType<Leptictidium>> LEPTICTIDIUM = ENTITIES.register("leptictidium", () -> EntityType.Builder.of(Leptictidium::new, MobCategory.CREATURE).sized(0.5F, 0.4F).build("leptictidium"));
-    public static final RegistryObject<EntityType<Borealopelta>> BOREALOPELTA = ENTITIES.register("borealopelta", () -> EntityType.Builder.of(Borealopelta::new, MobCategory.CREATURE).sized(1.5F, 1.4F).noSummon().build("borealopelta")); // todo - remove noSummon once added
+    public static final RegistryObject<EntityType<Borealopelta>> BOREALOPELTA = ENTITIES.register("borealopelta", () -> EntityType.Builder.of(Borealopelta::new, MobCategory.CREATURE).sized(1.5F, 1.4F).build("borealopelta"));
 
 }

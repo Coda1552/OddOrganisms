@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "oddorganisms:item/cenozoic_fossil"
+    "layer0": "oddorganisms:item/borealopelta_flask"
   }
 }

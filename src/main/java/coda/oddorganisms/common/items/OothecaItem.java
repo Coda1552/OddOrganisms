@@ -5,21 +5,13 @@ import coda.oddorganisms.registry.OOEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
-
-import java.util.Objects;
 
 public class OothecaItem extends Item {
 
@@ -44,14 +36,15 @@ public class OothecaItem extends Item {
                 blockpos1 = blockpos.relative(direction);
             }
 
-            EntityType<Apthoroblattina> roach = OOEntities.APTHOROBLATTINA.get();
+            Apthoroblattina roach = OOEntities.APTHOROBLATTINA.get().create(level);
             itemstack.shrink(1);
-            Apthoroblattina bigRoach = roach.create(level);
 
-            bigRoach.setAge(-24000);
-            bigRoach.moveTo(blockpos1, 0.0F, 0.0F);
+            roach.setAge(-24000);
+            roach.moveTo(blockpos1, 0.0F, 0.0F);
 
-            level.addFreshEntity(bigRoach);
+            level.addFreshEntity(roach);
+
+            roach.playSound(SoundEvents.TURTLE_EGG_CRACK, 1.0F, 1.0F);
 
             return InteractionResult.CONSUME;
         }

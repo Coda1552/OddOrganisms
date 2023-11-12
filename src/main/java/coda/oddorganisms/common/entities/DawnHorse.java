@@ -145,7 +145,7 @@ public class DawnHorse extends EntityBaseDinosaurAnimal implements IAnimatable {
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (!isAddedToWorld()) {
+        if (isFromBook()) {
             return PlayState.STOP;
         }
         else if (event.isMoving()) {

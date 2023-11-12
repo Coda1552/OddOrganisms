@@ -135,7 +135,7 @@ public class Leptictidium extends EntityBaseDinosaurAnimal implements IAnimatabl
     }
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
-        if (!isAddedToWorld()) {
+        if (isFromBook()) {
             return PlayState.STOP;
         }
         else if (event.isMoving()) {

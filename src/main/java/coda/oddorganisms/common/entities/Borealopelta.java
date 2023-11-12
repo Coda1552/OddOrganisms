@@ -132,7 +132,10 @@ public class Borealopelta extends EntityBaseDinosaurAnimal implements IAnimatabl
 
     private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
         boolean walking = !(event.getLimbSwingAmount() > -0.01F && event.getLimbSwingAmount() < 0.01F);
-        if (walking) {
+        if (isFromBook()) {
+            return PlayState.STOP;
+        }
+        else if (walking) {
             event.getController().setAnimation(OOAnimations.WALK);
         }
         else {

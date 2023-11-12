@@ -4,6 +4,9 @@ import coda.oddorganisms.common.entities.util.OOAnimations;
 import coda.oddorganisms.registry.OOEntities;
 import coda.oddorganisms.registry.OOItems;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
@@ -56,6 +59,24 @@ public class Apthoroblattina extends Animal implements IAnimatable {
         return OOEntities.APTHOROBLATTINA.get().create(p_146743_);
     }
 
+    @Nullable
+    @Override
+    protected SoundEvent getAmbientSound() {
+        return SoundEvents.SILVERFISH_AMBIENT;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+        return SoundEvents.SILVERFISH_HURT;
+    }
+
+    @Nullable
+    @Override
+    protected SoundEvent getDeathSound() {
+        return SoundEvents.SILVERFISH_DEATH;
+    }
+
     @Override
     public void registerControllers(AnimationData data) {
         data.addAnimationController(new AnimationController<>(this, "controller", 2, this::predicate));
@@ -78,5 +99,4 @@ public class Apthoroblattina extends Animal implements IAnimatable {
     public AnimationFactory getFactory() {
         return factory;
     }
-
 }

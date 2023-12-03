@@ -32,9 +32,9 @@
       "y": 40,
       "page": 0,
       "scale": 1.2,
-      "entity_scale": 0.7,
-      "offset_x": 6,
-      "offset_y": 0,
+      "entity_scale": 0.5,
+      "offset_x": 0,
+      "offset_y": -6,
       "hover_text": "Doedicurus"
     }
   ]

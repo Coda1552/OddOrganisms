@@ -22,16 +22,16 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.HitResult;
 import org.jetbrains.annotations.Nullable;
-import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.controller.AnimationController;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
-import software.bernie.geckolib3.core.manager.AnimationData;
-import software.bernie.geckolib3.core.manager.AnimationFactory;
-import software.bernie.geckolib3.util.GeckoLibUtil;
+import software.bernie.geckolib.animatable.GeoEntity;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.core.animation.AnimationController;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.core.object.PlayState;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class Leptictidium extends EntityBaseDinosaurAnimal implements IAnimatable {
-    private final AnimationFactory factory = GeckoLibUtil.createFactory(this);
+public class Leptictidium extends EntityBaseDinosaurAnimal implements GeoEntity {
 
     public Leptictidium(EntityType<? extends Animal> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);
@@ -107,7 +107,7 @@ public class Leptictidium extends EntityBaseDinosaurAnimal implements IAnimatabl
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel p_146743_, AgeableMob p_146744_) {
-        return OOEntities.LEPTICTIDIUM.get().create(level);
+        return OOEntities.LEPTICTIDIUM.get().create(level());
     }
 
     @Nullable
@@ -128,13 +128,12 @@ public class Leptictidium extends EntityBaseDinosaurAnimal implements IAnimatabl
         return OOSounds.LEPTICTIDIUM_AMBIENT.get();
     }
 
-
     @Override
-    public void registerControllers(AnimationData data) {
-        data.addAnimationController(new AnimationController<>(this, "controller", 2, this::predicate));
+    public void registerControllers(AnimatableManager.ControllerRegistrar controller) {
+        controller.add(new AnimationController<>(this, "controller", 2, this::predicate));
     }
 
-    private <E extends IAnimatable> PlayState predicate(AnimationEvent<E> event) {
+    private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> event) {
         if (isFromBook()) {
             return PlayState.STOP;
         }
@@ -147,14 +146,11 @@ public class Leptictidium extends EntityBaseDinosaurAnimal implements IAnimatabl
         return PlayState.CONTINUE;
     }
 
-    @Override
-    public AnimationFactory getFactory() {
-        return factory;
-    }
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
 
     @Override
-    public ItemStack getPickedResult(HitResult target) {
-        return new ItemStack(OOItems.LEPTICTIDIUM_SPAWN_EGG.get());
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
     }
 
     @Override

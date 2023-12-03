@@ -1,17 +1,16 @@
 package coda.oddorganisms;
 
 import coda.oddorganisms.common.entities.*;
-import coda.oddorganisms.registry.OOBlocks;
-import coda.oddorganisms.registry.OOEntities;
-import coda.oddorganisms.registry.OOItems;
-import coda.oddorganisms.registry.OOSounds;
+import coda.oddorganisms.registry.*;
 import com.peeko32213.unusualprehistory.common.config.UnusualPrehistoryConfig;
 import com.peeko32213.unusualprehistory.core.registry.UPTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.tags.DamageTypeTags;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobSpawnType;
@@ -48,6 +47,7 @@ public class OddOrganisms {
         OOItems.ITEMS.register(bus);
         OOBlocks.BLOCKS.register(bus);
         OOSounds.SOUNDS.register(bus);
+        OOTabs.TABS.register(bus);
 
         forgeBus.addListener(this::addEntityGoals);
         forgeBus.addListener(this::livingDamage);
@@ -58,12 +58,12 @@ public class OddOrganisms {
     }
 
     private void registerSpawnPlacements(final SpawnPlacementRegisterEvent event) {
-        event.register(OOEntities.LEPTICTIDIUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-        event.register(OOEntities.DOEDICURUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-        event.register(OOEntities.DAWN_HORSE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-        event.register(OOEntities.EOLACTORIA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canFishAnimalSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-        event.register(OOEntities.APTHOROBLATTINA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.AND);
-        event.register(OOEntities.BOREALOPELTA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(OOEntities.LEPTICTIDIUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.DOEDICURUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.DAWN_HORSE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.EOLACTORIA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canFishAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.APTHOROBLATTINA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.BOREALOPELTA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     private boolean canLandAnimalSpawn(EntityType<? extends Animal> p_186238_, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource p_186242_) {
@@ -85,17 +85,17 @@ public class OddOrganisms {
         else if (e.getSource().getEntity() instanceof Doedicurus doedicurus && e.getEntity() instanceof Player player && player.isBlocking()) {
             if (player.getItemBySlot(EquipmentSlot.CHEST).is(OOItems.DOEDICURUS_CHESTPLATE.get()) && player.isShiftKeyDown()) return;
 
-            ItemEntity item = EntityType.ITEM.create(doedicurus.level);
+            ItemEntity item = EntityType.ITEM.create(doedicurus.level());
 
             item.moveTo(doedicurus.position());
             item.setItem(new ItemStack(OOItems.DOEDICURUS_SCUTE.get(), doedicurus.getRandom().nextInt(2)));
 
-            doedicurus.level.addFreshEntity(item);
+            doedicurus.level().addFreshEntity(item);
         }
     }
 
     private boolean isValidSource(DamageSource source) {
-        return !source.isFire() && !source.isMagic() && !source.isFall();
+        return !source.is(DamageTypeTags.IS_FIRE) && !source.is(DamageTypes.MAGIC) && !source.is(DamageTypeTags.IS_FALL);
     }
 
     private void playerAttack(AttackEntityEvent e) {

@@ -20,6 +20,6 @@ public class OOSounds {
     public static final RegistryObject<SoundEvent> LEPTICTIDIUM_SCARED = register("leptictidium.scared");
 
     private static RegistryObject<SoundEvent> register(String name) {
-        return SOUNDS.register(name, () -> new SoundEvent(new ResourceLocation(OddOrganisms.MOD_ID, name)));
+        return SOUNDS.register(name, () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(OddOrganisms.MOD_ID, name)));
     }
 }

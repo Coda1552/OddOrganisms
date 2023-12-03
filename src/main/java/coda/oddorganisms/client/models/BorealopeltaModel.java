@@ -3,22 +3,11 @@ package coda.oddorganisms.client.models;
 import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.entities.Borealopelta;
 import net.minecraft.resources.ResourceLocation;
-import software.bernie.geckolib3.model.AnimatedGeoModel;
+import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 
-public class BorealopeltaModel extends AnimatedGeoModel<Borealopelta> {
+public class BorealopeltaModel extends DefaultedEntityGeoModel<Borealopelta> {
 
-    @Override
-    public ResourceLocation getModelResource(Borealopelta object) {
-        return new ResourceLocation(OddOrganisms.MOD_ID, "geo/borealopelta.geo.json");
-    }
-
-    @Override
-    public ResourceLocation getTextureResource(Borealopelta object) {
-        return new ResourceLocation(OddOrganisms.MOD_ID, "textures/entity/borealopelta.png");
-    }
-
-    @Override
-    public ResourceLocation getAnimationResource(Borealopelta animatable) {
-        return new ResourceLocation(OddOrganisms.MOD_ID, "animations/borealopelta.animation.json");
+    public BorealopeltaModel() {
+        super(new ResourceLocation(OddOrganisms.MOD_ID, "borealopelta"));
     }
 }

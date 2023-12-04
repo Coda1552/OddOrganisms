@@ -78,11 +78,6 @@ public class DawnHorse extends EntityBaseDinosaurAnimal implements GeoEntity {
     }
 
     @Override
-    public ItemStack getPickedResult(HitResult target) {
-        return new ItemStack(OOItems.DAWN_HORSE_SPAWN_EGG.get());
-    }
-
-    @Override
     public boolean isFood(ItemStack stack) {
         return stack.is(ItemTags.LEAVES);
     }

@@ -48,11 +48,6 @@ public class Apthoroblattina extends Animal implements GeoEntity {
         return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 12.0F).add(Attributes.MOVEMENT_SPEED, 0.25F);
     }
 
-    @Override
-    public ItemStack getPickedResult(HitResult target) {
-        return new ItemStack(OOItems.APTHOROBLATTINA_SPAWN_EGG.get());
-    }
-
     @Nullable
     @Override
     public AgeableMob getBreedOffspring(ServerLevel p_146743_, AgeableMob p_146744_) {

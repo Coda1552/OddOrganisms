@@ -152,9 +152,4 @@ public class Borealopelta extends EntityBaseDinosaurAnimal implements GeoEntity 
         return cache;
     }
 
-    // todo - test
-    @Override
-    public ItemStack getPickedResult(HitResult target) {
-        return new ItemStack(OOItems.BOREALOPELTA_SPAWN_EGG.get());
-    }
 }

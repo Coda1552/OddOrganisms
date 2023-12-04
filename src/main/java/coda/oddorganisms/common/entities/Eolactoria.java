@@ -51,11 +51,6 @@ public class Eolactoria extends AbstractFish implements GeoEntity {
     }
 
     @Override
-    public ItemStack getPickedResult(HitResult target) {
-        return new ItemStack(OOItems.EOLACTORIA_SPAWN_EGG.get());
-    }
-
-    @Override
     public boolean requiresCustomPersistence() {
         return true;
     }

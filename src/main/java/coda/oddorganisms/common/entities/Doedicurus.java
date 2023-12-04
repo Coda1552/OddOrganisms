@@ -81,11 +81,6 @@ public class Doedicurus extends EntityBaseDinosaurAnimal implements GeoEntity {
     }
 
     @Override
-    public ItemStack getPickedResult(HitResult target) {
-        return new ItemStack(OOItems.DOEDICURUS_SPAWN_EGG.get());
-    }
-
-    @Override
     public boolean isFood(ItemStack stack) {
         return stack.is(Items.SWEET_BERRIES);
     }

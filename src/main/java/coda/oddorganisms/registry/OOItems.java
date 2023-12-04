@@ -42,6 +42,6 @@ public class OOItems {
     public static final RegistryObject<Item> BOREALOPELTA_SPAWN_EGG = ITEMS.register("borealopelta_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.BOREALOPELTA, 0x583f30, 0x73c8c4, new Item.Properties()));
     public static final RegistryObject<Item> FALCATUS_SPAWN_EGG = ITEMS.register("falcatus_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.FALCATUS, 0x9bcbaf, 0xc5fb72, new Item.Properties()));
 
-    public static final RegistryObject<Item> EOLACTORIA_BUCKET = ITEMS.register("eolactoria_bucket", () -> new MobBucketItem(OOEntities.EOLACTORIA, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties()));
-    public static final RegistryObject<Item> FALCATUS_BUCKET = ITEMS.register("falcatus_bucket", () -> new MobBucketItem(OOEntities.FALCATUS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties()));
+    public static final RegistryObject<Item> EOLACTORIA_BUCKET = ITEMS.register("eolactoria_bucket", () -> new MobBucketItem(OOEntities.EOLACTORIA, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> FALCATUS_BUCKET = ITEMS.register("falcatus_bucket", () -> new MobBucketItem(OOEntities.FALCATUS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)));
 }

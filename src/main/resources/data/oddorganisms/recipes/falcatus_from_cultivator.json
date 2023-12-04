@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "oddorganisms:falcatus_flask"
+    }
+  ],
+  "output": {
+    "item": "oddorganisms:falcatus_eggs"
+  }
+}

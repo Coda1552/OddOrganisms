@@ -1,0 +1,118 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true,
+			"animation_length": 8,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time)*90)*3", "Math.cos((query.anim_time+0.2)*90)*2"]
+					}
+				},
+				"leftEye": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.2)*90)*3", 0]
+					}
+				},
+				"rightEye": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.2)*90)*3", 0]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.4)*90)*-5", "Math.cos((query.anim_time-0.6)*90)*-5"]
+					}
+				},
+				"caudalFin": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.6)*90)*-10", "Math.cos((query.anim_time-0.8)*90)*-5"]
+					}
+				},
+				"dorsalFin": {
+					"rotation": {
+						"vector": [0, 0, "Math.cos((query.anim_time-0.6)*90)*5"]
+					}
+				},
+				"leftFin": {
+					"rotation": {
+						"vector": ["Math.cos((query.anim_time-0.4)*90)*-5", 0, -42.5]
+					}
+				},
+				"rightFin": {
+					"rotation": {
+						"vector": ["Math.cos((query.anim_time-0.4)*90)*5", 0, 42.5]
+					}
+				},
+				"leftPelvicFin": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.4)*90)*-4", -35]
+					}
+				},
+				"rightPelvicFin": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.4)*90)*4", 35]
+					}
+				}
+			}
+		},
+		"swim": {
+			"loop": true,
+			"animation_length": 6,
+			"bones": {
+				"body": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time)*360)*5", 0]
+					}
+				},
+				"leftEye": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.2)*360)*3", 0]
+					}
+				},
+				"rightEye": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.2)*360)*3", 0]
+					}
+				},
+				"tail": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.4)*360)*20", "Math.cos((query.anim_time+0.7)*360)*5"]
+					}
+				},
+				"caudalFin": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.5)*360)*20", "Math.cos((query.anim_time-0.7)*360)*10"]
+					}
+				},
+				"dorsalFin": {
+					"rotation": {
+						"vector": [0, 0, "Math.cos((query.anim_time-0.4)*360)*4"]
+					}
+				},
+				"leftFin": {
+					"rotation": {
+						"vector": ["Math.cos((query.anim_time-0.2)*360)*-3", 0, -42.5]
+					}
+				},
+				"rightFin": {
+					"rotation": {
+						"vector": ["Math.cos((query.anim_time-0.2)*360)*3", 0, 42.5]
+					}
+				},
+				"leftPelvicFin": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.4)*360)*4", -35]
+					}
+				},
+				"rightPelvicFin": {
+					"rotation": {
+						"vector": [0, "Math.cos((query.anim_time-0.4)*360)*4", 35]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

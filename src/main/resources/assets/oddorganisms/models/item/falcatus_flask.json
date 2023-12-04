@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "oddorganisms:block/eolactoria_eggs"
+    "layer0": "oddorganisms:item/falcatus_flask"
   }
 }

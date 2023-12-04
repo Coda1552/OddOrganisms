@@ -12,4 +12,5 @@ public class OOBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, OddOrganisms.MOD_ID);
 
     public static final RegistryObject<Block> EOLACTORIA_EGGS = BLOCKS.register("eolactoria_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.EOLACTORIA, false));
+    public static final RegistryObject<Block> FALCATUS_EGGS = BLOCKS.register("falcatus_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.FALCATUS, false));
 }

@@ -57,13 +57,24 @@ public class OddOrganisms {
         bus.addListener(this::registerSpawnPlacements);
     }
 
+    private void registerAttributes(EntityAttributeCreationEvent e) {
+        e.put(OOEntities.DAWN_HORSE.get(), DawnHorse.createAttributes().build());
+        e.put(OOEntities.DOEDICURUS.get(), Doedicurus.createAttributes().build());
+        e.put(OOEntities.EOLACTORIA.get(), Eolactoria.createAttributes().build());
+        e.put(OOEntities.APTHOROBLATTINA.get(), Apthoroblattina.createAttributes().build());
+        e.put(OOEntities.LEPTICTIDIUM.get(), Leptictidium.createAttributes().build());
+        e.put(OOEntities.BOREALOPELTA.get(), Borealopelta.createAttributes().build());
+        e.put(OOEntities.FALCATUS.get(), Falcatus.createAttributes().build());
+    }
+
     private void registerSpawnPlacements(final SpawnPlacementRegisterEvent event) {
-        event.register(OOEntities.LEPTICTIDIUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
-        event.register(OOEntities.DOEDICURUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(OOEntities.DAWN_HORSE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
-        event.register(OOEntities.EOLACTORIA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canFishAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.DOEDICURUS.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.EOLACTORIA.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canFishAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(OOEntities.APTHOROBLATTINA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.LEPTICTIDIUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(OOEntities.BOREALOPELTA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.FALCATUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canFishAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     private boolean canLandAnimalSpawn(EntityType<? extends Animal> p_186238_, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource p_186242_) {
@@ -104,15 +115,6 @@ public class OddOrganisms {
             player.playSound(SoundEvents.SHIELD_BLOCK, 1.0F, 1.0F);
             e.setCanceled(true);
         }
-    }
-
-    private void registerAttributes(EntityAttributeCreationEvent e) {
-        e.put(OOEntities.DAWN_HORSE.get(), DawnHorse.createAttributes().build());
-        e.put(OOEntities.DOEDICURUS.get(), Doedicurus.createAttributes().build());
-        e.put(OOEntities.EOLACTORIA.get(), Eolactoria.createAttributes().build());
-        e.put(OOEntities.APTHOROBLATTINA.get(), Apthoroblattina.createAttributes().build());
-        e.put(OOEntities.LEPTICTIDIUM.get(), Leptictidium.createAttributes().build());
-        e.put(OOEntities.BOREALOPELTA.get(), Borealopelta.createAttributes().build());
     }
 
     private void addEntityGoals(EntityJoinLevelEvent e) {

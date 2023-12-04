@@ -6,6 +6,10 @@
     {
       "weight": 15,
       "item": "oddorganisms:apthoroblattina_flask"
+    },
+    {
+      "weight": 10,
+      "item": "oddorganisms:falcatus_flask"
     }
   ]
 }

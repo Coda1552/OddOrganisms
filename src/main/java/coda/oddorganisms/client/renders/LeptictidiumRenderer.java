@@ -1,17 +1,18 @@
 package coda.oddorganisms.client.renders;
 
-import coda.oddorganisms.client.models.LeptictidiumModel;
-import coda.oddorganisms.common.entities.DawnHorse;
+import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.entities.Leptictidium;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.resources.ResourceLocation;
+import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
 public class LeptictidiumRenderer extends GeoEntityRenderer<Leptictidium> {
 
     public LeptictidiumRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new LeptictidiumModel());
+        super(renderManager, new DefaultedEntityGeoModel<>(new ResourceLocation(OddOrganisms.MOD_ID, "leptictidium")));
     }
 
     @Override

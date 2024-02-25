@@ -18,4 +18,5 @@ public class OOEntities {
     public static final RegistryObject<EntityType<Leptictidium>> LEPTICTIDIUM = ENTITIES.register("leptictidium", () -> EntityType.Builder.of(Leptictidium::new, MobCategory.CREATURE).sized(0.5F, 0.4F).build("leptictidium"));
     public static final RegistryObject<EntityType<Borealopelta>> BOREALOPELTA = ENTITIES.register("borealopelta", () -> EntityType.Builder.of(Borealopelta::new, MobCategory.CREATURE).sized(1.8F, 1.7F).build("borealopelta"));
     public static final RegistryObject<EntityType<Falcatus>> FALCATUS = ENTITIES.register("falcatus", () -> EntityType.Builder.of(Falcatus::new, MobCategory.WATER_CREATURE).sized(0.5F, 0.5F).build("falcatus"));
+    public static final RegistryObject<EntityType<Slovenicus>> SLOVENICUS = ENTITIES.register("slovenicus", () -> EntityType.Builder.of(Slovenicus::new, MobCategory.WATER_CREATURE).sized(0.25F, 0.8F).build("slovenicus"));
 }

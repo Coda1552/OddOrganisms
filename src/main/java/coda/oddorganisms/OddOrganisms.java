@@ -65,6 +65,7 @@ public class OddOrganisms {
         e.put(OOEntities.LEPTICTIDIUM.get(), Leptictidium.createAttributes().build());
         e.put(OOEntities.BOREALOPELTA.get(), Borealopelta.createAttributes().build());
         e.put(OOEntities.FALCATUS.get(), Falcatus.createAttributes().build());
+        e.put(OOEntities.SLOVENICUS.get(), Slovenicus.createAttributes().build());
     }
 
     private void registerSpawnPlacements(final SpawnPlacementRegisterEvent event) {
@@ -75,6 +76,7 @@ public class OddOrganisms {
         event.register(OOEntities.LEPTICTIDIUM.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(OOEntities.BOREALOPELTA.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canLandAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
         event.register(OOEntities.FALCATUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canFishAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
+        event.register(OOEntities.SLOVENICUS.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, this::canFishAnimalSpawn, SpawnPlacementRegisterEvent.Operation.OR);
     }
 
     private boolean canLandAnimalSpawn(EntityType<? extends Animal> p_186238_, LevelAccessor level, MobSpawnType spawnType, BlockPos pos, RandomSource p_186242_) {

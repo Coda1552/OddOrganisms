@@ -26,6 +26,7 @@ public class OOItems {
     public static final RegistryObject<Item> LEPTICTIDIUM_FLASK = ITEMS.register("leptictidium_flask", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> BOREALOPELTA_FLASK = ITEMS.register("borealopelta_flask", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> FALCATUS_FLASK = ITEMS.register("falcatus_flask", () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SLOVENICUS_FLASK = ITEMS.register("slovenicus_flask", () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> DAWN_HORSE_EMBRYO = ITEMS.register("dawn_horse_embryo", () -> new AnimalAttacherItem(new Item.Properties().stacksTo(16), OOTags.DAWN_HORSE_EMBRYO_ATTACH_TO, OOEntities.DAWN_HORSE, 1000));
     public static final RegistryObject<Item> DOEDICURUS_EMBRYO = ITEMS.register("doedicurus_embryo", () -> new AnimalAttacherItem(new Item.Properties().stacksTo(16), OOTags.DOEDICURUS_EMBRYO_ATTACH_TO, OOEntities.DOEDICURUS, 1000));
@@ -33,6 +34,7 @@ public class OOItems {
     public static final RegistryObject<Item> EOLACTORIA_EGGS = ITEMS.register("eolactoria_eggs", () -> new PlaceOnWaterBlockItem(OOBlocks.EOLACTORIA_EGGS.get(), new Item.Properties()));
     public static final RegistryObject<Item> APTHOROBLATTINA_OOTHECA = ITEMS.register("apthoroblattina_ootheca", () -> new OothecaItem(new Item.Properties()));
     public static final RegistryObject<Item> FALCATUS_EGGS = ITEMS.register("falcatus_eggs", () -> new PlaceOnWaterBlockItem(OOBlocks.FALCATUS_EGGS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> SLOVENICUS_EGGS = ITEMS.register("slovenicus_eggs", () -> new PlaceOnWaterBlockItem(OOBlocks.SLOVENICUS_EGGS.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> DAWN_HORSE_SPAWN_EGG = ITEMS.register("dawn_horse_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DAWN_HORSE, 0xb89268, 0xffe5b1, new Item.Properties()));
     public static final RegistryObject<Item> DOEDICURUS_SPAWN_EGG = ITEMS.register("doedicurus_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DOEDICURUS, 0x694628, 0x926f40, new Item.Properties()));
@@ -41,7 +43,9 @@ public class OOItems {
     public static final RegistryObject<Item> LEPTICTIDIUM_SPAWN_EGG = ITEMS.register("leptictidium_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.LEPTICTIDIUM, 0xc09251, 0xe28554, new Item.Properties()));
     public static final RegistryObject<Item> BOREALOPELTA_SPAWN_EGG = ITEMS.register("borealopelta_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.BOREALOPELTA, 0x583f30, 0x73c8c4, new Item.Properties()));
     public static final RegistryObject<Item> FALCATUS_SPAWN_EGG = ITEMS.register("falcatus_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.FALCATUS, 0x9bcbaf, 0xc5fb72, new Item.Properties()));
+    public static final RegistryObject<Item> SLOVENICUS_SPAWN_EGG = ITEMS.register("slovenicus_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.SLOVENICUS, 0x713126, 0x84dd92, new Item.Properties()));
 
     public static final RegistryObject<Item> EOLACTORIA_BUCKET = ITEMS.register("eolactoria_bucket", () -> new MobBucketItem(OOEntities.EOLACTORIA, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> FALCATUS_BUCKET = ITEMS.register("falcatus_bucket", () -> new MobBucketItem(OOEntities.FALCATUS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> SLOVENICUS_BUCKET = ITEMS.register("slovenicus_bucket", () -> new MobBucketItem(OOEntities.SLOVENICUS, () -> Fluids.WATER, () -> SoundEvents.BUCKET_EMPTY_FISH, new Item.Properties().stacksTo(1)));
 }

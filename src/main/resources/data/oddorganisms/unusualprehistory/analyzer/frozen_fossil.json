@@ -8,6 +8,10 @@
     {
       "weight": 15,
       "item": "oddorganisms:eolactoria_flask"
+    },
+    {
+      "weight": 15,
+      "item": "oddorganisms:slovenicus_flask"
     }
   ]
 }

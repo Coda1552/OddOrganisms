@@ -13,4 +13,5 @@ public class OOBlocks {
 
     public static final RegistryObject<Block> EOLACTORIA_EGGS = BLOCKS.register("eolactoria_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.EOLACTORIA, false));
     public static final RegistryObject<Block> FALCATUS_EGGS = BLOCKS.register("falcatus_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.FALCATUS, false));
+    public static final RegistryObject<Block> SLOVENICUS_EGGS = BLOCKS.register("slovenicus_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.SLOVENICUS, false));
 }

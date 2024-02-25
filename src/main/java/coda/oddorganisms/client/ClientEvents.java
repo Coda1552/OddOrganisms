@@ -20,5 +20,6 @@ public class ClientEvents {
         e.registerEntityRenderer(OOEntities.LEPTICTIDIUM.get(), LeptictidiumRenderer::new);
         e.registerEntityRenderer(OOEntities.BOREALOPELTA.get(), BorealopeltaRenderer::new);
         e.registerEntityRenderer(OOEntities.FALCATUS.get(), FalcatusRenderer::new);
+        e.registerEntityRenderer(OOEntities.SLOVENICUS.get(), SlovenicusRenderer::new);
     }
 }

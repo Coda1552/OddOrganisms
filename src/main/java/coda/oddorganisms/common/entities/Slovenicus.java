@@ -1,5 +1,6 @@
 package coda.oddorganisms.common.entities;
 
+import coda.oddorganisms.common.entities.util.IFish;
 import coda.oddorganisms.common.entities.util.OOAnimations;
 import coda.oddorganisms.registry.OOItems;
 import net.minecraft.sounds.SoundEvent;
@@ -22,7 +23,7 @@ import software.bernie.geckolib.core.animation.AnimationState;
 import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class Slovenicus extends AbstractFish implements GeoEntity {
+public class Slovenicus extends AbstractFish implements GeoEntity, IFish {
 
     public Slovenicus(EntityType<? extends AbstractFish> p_27557_, Level p_27558_) {
         super(p_27557_, p_27558_);

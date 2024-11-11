@@ -1,7 +1,7 @@
 package coda.oddorganisms.client;
 
 import coda.oddorganisms.OddOrganisms;
-import coda.oddorganisms.client.renders.*;
+import coda.oddorganisms.client.geo.*;
 import coda.oddorganisms.registry.OOEntities;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;

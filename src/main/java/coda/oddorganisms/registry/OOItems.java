@@ -35,6 +35,7 @@ public class OOItems {
     public static final RegistryObject<Item> APTHOROBLATTINA_OOTHECA = ITEMS.register("apthoroblattina_ootheca", () -> new OothecaItem(new Item.Properties()));
     public static final RegistryObject<Item> FALCATUS_EGGS = ITEMS.register("falcatus_eggs", () -> new PlaceOnWaterBlockItem(OOBlocks.FALCATUS_EGGS.get(), new Item.Properties()));
     public static final RegistryObject<Item> SLOVENICUS_EGGS = ITEMS.register("slovenicus_eggs", () -> new PlaceOnWaterBlockItem(OOBlocks.SLOVENICUS_EGGS.get(), new Item.Properties()));
+    public static final RegistryObject<Item> BOREALOPELTA_EGG = ITEMS.register("borealopelta_egg", () -> new BlockItem(OOBlocks.BOREALOPELTA_EGG.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> DAWN_HORSE_SPAWN_EGG = ITEMS.register("dawn_horse_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DAWN_HORSE, 0xb89268, 0xffe5b1, new Item.Properties()));
     public static final RegistryObject<Item> DOEDICURUS_SPAWN_EGG = ITEMS.register("doedicurus_spawn_egg", () -> new ForgeSpawnEggItem(OOEntities.DOEDICURUS, 0x694628, 0x926f40, new Item.Properties()));

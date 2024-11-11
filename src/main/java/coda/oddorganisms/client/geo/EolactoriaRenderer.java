@@ -1,4 +1,4 @@
-package coda.oddorganisms.client.renders;
+package coda.oddorganisms.client.geo;
 
 import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.entities.Eolactoria;
@@ -13,14 +13,13 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 public class EolactoriaRenderer extends GeoEntityRenderer<Eolactoria> {
 
     public EolactoriaRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new DefaultedEntityGeoModel<>(new ResourceLocation(OddOrganisms.MOD_ID, "eolactoria")));
+        super(renderManager, new OODefaultedEntityGeoModel<>(new ResourceLocation(OddOrganisms.MOD_ID, "eolactoria")));
     }
 
     @Override
     public void render(Eolactoria entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
         if (!entity.isInWater() && entity.isAddedToWorld()) {
             poseStack.translate(0.1F, 0.1F, -0.1F);
-            poseStack.mulPose(Axis.ZP.rotationDegrees(90.0F));
         }
 
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);

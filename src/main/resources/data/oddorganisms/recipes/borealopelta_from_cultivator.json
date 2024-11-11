@@ -1,0 +1,11 @@
+{
+  "type": "unusualprehistory:cultivator",
+  "ingredients": [
+    {
+      "item": "oddorganisms:borealopelta_flask"
+    }
+  ],
+  "output": {
+    "item": "oddorganisms:borealopelta_egg"
+  }
+}

@@ -1,4 +1,4 @@
-package coda.oddorganisms.client.renders;
+package coda.oddorganisms.client.geo;
 
 import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.entities.DawnHorse;
@@ -12,7 +12,7 @@ import software.bernie.geckolib.renderer.GeoEntityRenderer;
 public class DawnHorseRenderer extends GeoEntityRenderer<DawnHorse> {
 
     public DawnHorseRenderer(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new DefaultedEntityGeoModel<>(new ResourceLocation(OddOrganisms.MOD_ID, "dawn_horse")));
+        super(renderManager, new OODefaultedEntityGeoModel<>(new ResourceLocation(OddOrganisms.MOD_ID, "dawn_horse")));
     }
 
     @Override

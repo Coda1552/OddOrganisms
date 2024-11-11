@@ -1,6 +1,7 @@
 package coda.oddorganisms.registry;
 
 import coda.oddorganisms.OddOrganisms;
+import com.peeko32213.unusualprehistory.common.block.BlockDinosaurLandEggs;
 import com.peeko32213.unusualprehistory.common.block.BlockDinosaurWaterEggs;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -14,4 +15,5 @@ public class OOBlocks {
     public static final RegistryObject<Block> EOLACTORIA_EGGS = BLOCKS.register("eolactoria_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.EOLACTORIA, false));
     public static final RegistryObject<Block> FALCATUS_EGGS = BLOCKS.register("falcatus_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.FALCATUS, false));
     public static final RegistryObject<Block> SLOVENICUS_EGGS = BLOCKS.register("slovenicus_eggs", () -> new BlockDinosaurWaterEggs(BlockBehaviour.Properties.of().instabreak().noOcclusion().noCollission(), OOEntities.SLOVENICUS, false));
+    public static final RegistryObject<Block> BOREALOPELTA_EGG = BLOCKS.register("borealopelta_egg", () -> new BlockDinosaurLandEggs(BlockBehaviour.Properties.of().noOcclusion(), OOEntities.BOREALOPELTA, 1, Block.box(6, 0, 6, 10, 4, 10)));
 }

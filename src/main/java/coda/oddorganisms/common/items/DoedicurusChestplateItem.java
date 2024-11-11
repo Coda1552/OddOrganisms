@@ -1,7 +1,7 @@
 package coda.oddorganisms.common.items;
 
 import coda.oddorganisms.OddOrganisms;
-import coda.oddorganisms.client.renders.armor.DoedicurusChestplateRenderer;
+import coda.oddorganisms.client.geo.armor.DoedicurusChestplateRenderer;
 import coda.oddorganisms.registry.OOItems;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.sounds.SoundEvents;

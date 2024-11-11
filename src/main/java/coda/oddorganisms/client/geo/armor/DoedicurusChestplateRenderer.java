@@ -1,4 +1,4 @@
-package coda.oddorganisms.client.renders.armor;
+package coda.oddorganisms.client.geo.armor;
 
 import coda.oddorganisms.OddOrganisms;
 import coda.oddorganisms.common.items.DoedicurusChestplateItem;

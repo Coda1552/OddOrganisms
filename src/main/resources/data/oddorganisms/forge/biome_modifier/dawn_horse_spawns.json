@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#minecraft:is_taiga",
+  "spawners": {
+    "type": "oddorganisms:dawn_horse",
+    "weight": 4,
+    "minCount": 3,
+    "maxCount": 6,
+    "category": "creature"
+  }
+}

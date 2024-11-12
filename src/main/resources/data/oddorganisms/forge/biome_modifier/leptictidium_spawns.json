@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "minecraft:sparse_jungle",
+  "spawners": {
+    "type": "oddorganisms:leptictidium",
+    "weight": 4,
+    "minCount": 4,
+    "maxCount": 6,
+    "category": "creature"
+  }
+}

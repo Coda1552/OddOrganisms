@@ -3,7 +3,7 @@
   "biomes": "minecraft:dripstone_caves",
   "spawners": {
     "type": "oddorganisms:apthoroblattina",
-    "weight": 50,
+    "weight": 5,
     "minCount": 1,
     "maxCount": 1,
     "category": "ambient"

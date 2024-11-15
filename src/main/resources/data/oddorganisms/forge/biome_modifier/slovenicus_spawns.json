@@ -1,0 +1,11 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "minecraft:warm_ocean",
+  "spawners": {
+    "type": "oddorganisms:slovenicus",
+    "weight": 4,
+    "minCount": 2,
+    "maxCount": 3,
+    "category": "water_ambient"
+  }
+}
